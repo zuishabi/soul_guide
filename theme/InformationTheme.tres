@@ -1,0 +1,17 @@
+[gd_resource type="Theme" load_steps=4 format=3 uid="uid://b0yoe5i10sd6k"]
+
+[ext_resource type="Texture2D" uid="uid://ca86ifr8jbcje" path="res://arts/2D Pixel Dungeon Asset Pack/GUI.png" id="1_b113w"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dr7k1"]
+atlas = ExtResource("1_b113w")
+region = Rect2(2, 34, 44, 44)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_evlos"]
+texture = SubResource("AtlasTexture_dr7k1")
+texture_margin_left = 5.0
+texture_margin_top = 5.0
+texture_margin_right = 5.0
+texture_margin_bottom = 5.0
+
+[resource]
+PanelContainer/styles/panel = SubResource("StyleBoxTexture_evlos")

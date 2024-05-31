@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="Equipment" load_steps=3 format=3 uid="uid://bkebpr71q3k4b"]
+
+[ext_resource type="Script" path="res://resouces/equipments/BaseEquipment.gd" id="1_1uflq"]
+[ext_resource type="Texture2D" uid="uid://d22w2cwaqd5sc" path="res://arts/2D Pixel Dungeon Asset Pack/items and trap_animation/chest/chest_1.png" id="1_jjagw"]
+
+[resource]
+script = ExtResource("1_1uflq")
+equip_texture = ExtResource("1_jjagw")
+can_fold = false
+name = "chest"
+description = "用于存放物品的容器"
+equipement_type = ""

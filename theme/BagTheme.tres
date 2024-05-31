@@ -1,0 +1,23 @@
+[gd_resource type="Theme" load_steps=6 format=3 uid="uid://djj7a7lkt57ug"]
+
+[ext_resource type="FontFile" uid="uid://b7kulnvfh14d7" path="res://arts/pixel_rpg.ttf" id="1_0m8kh"]
+[ext_resource type="Texture2D" uid="uid://ca86ifr8jbcje" path="res://arts/2D Pixel Dungeon Asset Pack/GUI.png" id="1_hsfdn"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7tn8v"]
+bg_color = Color(0.702179, 0.569713, 0.482899, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dto0s"]
+atlas = ExtResource("1_hsfdn")
+region = Rect2(0, 96, 47, 32)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_uytnl"]
+texture = SubResource("AtlasTexture_dto0s")
+texture_margin_left = 6.0
+texture_margin_top = 6.0
+texture_margin_right = 6.0
+texture_margin_bottom = 6.0
+
+[resource]
+Label/fonts/font = ExtResource("1_0m8kh")
+Panel/styles/panel = SubResource("StyleBoxFlat_7tn8v")
+PanelContainer/styles/panel = SubResource("StyleBoxTexture_uytnl")
