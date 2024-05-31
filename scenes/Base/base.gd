@@ -23,7 +23,6 @@ func _ready():
 	astar=TileMapAStar2D.new(tile_map,0)
 
 func _process(_delta):
-	print(_delta)
 	mouse_pos=get_global_mouse_position()
 	tile_pos=tile_map.local_to_map(to_local(mouse_pos))
 	target_pos=tile_map.map_to_local(tile_pos)

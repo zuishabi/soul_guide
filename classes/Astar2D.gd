@@ -6,30 +6,6 @@ var _layer_id:int
 var _pos_labs:Array[Label] = []
 var _id_labs:Array[Label] = []
 
-#@export var show_navigation_cells_pos:bool = false:
-	#set(val):
-		#show_navigation_cells_pos = val
-		#if val:
-			#for cell in get_has_navigation_cells():
-				#show_cell_pos(cell)
-		#else:
-			#for lab in _pos_labs:
-				#lab.queue_free()
-			#_pos_labs.clear()
-
-#@export var show_navigation_cells_id:bool = false:
-	#set(val):
-		#show_navigation_cells_id = val
-		#if val:
-			#for point_id in get_point_ids():
-				#var cell = Vector2i(get_point_position(point_id))
-				#if cell in get_has_navigation_cells():
-					#show_cell_id(cell,point_id)
-		#else:
-			#for lab in _id_labs:
-				#lab.queue_free()
-			#_id_labs.clear()
-
 func _init(tile_map:TileMap,layer_id:int):
 	# 存储TileMap对象和layer_id
 	_tile_map = tile_map
@@ -70,35 +46,3 @@ func get_has_navigation_cells() -> Array[Vector2i]:
 		if is_cell_has_navigation_polygon(cell):# 格子有导航多边形
 			cells.append(cell)
 	return cells
-
-##func create_lab(content:String,font_color:Color = Color("#ffffff")):
-	#var lab = Label.new()
-	#lab.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
-	#lab.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
-	## 构造LabelSettings
-	#var lab_setting = LabelSettings.new()
-	#lab_setting.font_color = font_color
-	#lab_setting.font_size = _tile_map.tile_set.tile_size.x /8
-	#lab_setting.outline_color = Color("#444444")
-	#lab_setting.outline_size = lab_setting.font_size/3
-	#lab_setting.shadow_color = Color("#3333339e")
-	#lab_setting.shadow_size = 1
-	#lab_setting.shadow_offset = Vector2(2,2)
-	## 其他配置
-	#lab.label_settings = lab_setting
-	#lab.text = content
-	#return lab
-
-## 显示TileMap对应单元格的位置信息
-#func show_cell_pos(cell:Vector2i):
-	#var lab = create_lab(str(cell))
-	#lab.position = _tile_map.map_to_local(cell)
-	#_tile_map.add_child(lab)
-	#_pos_labs.append(lab)
-#
-## 显示单元格对应的AStar2D的点ID
-#func show_cell_id(cell:Vector2i,id:int):
-	#var lab = create_lab(str(id),Color.ORANGE)
-	#lab.position = _tile_map.map_to_local(cell) - Vector2(_tile_map.tile_set.tile_size /5.5)
-	#_tile_map.add_child(lab)
-	#_id_labs.append(lab)

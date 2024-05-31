@@ -1,46 +1,38 @@
-[gd_scene load_steps=16 format=3 uid="uid://bti26imhoc0qy"]
+[gd_scene load_steps=14 format=3 uid="uid://bti26imhoc0qy"]
 
 [ext_resource type="Theme" uid="uid://tuqcinp2ysp1" path="res://theme/SlotTheme.tres" id="1_q5b3c"]
 [ext_resource type="Script" path="res://scenes/ui/bag_slot.gd" id="1_to01j"]
 [ext_resource type="Texture2D" uid="uid://dby1iikiulohg" path="res://arts/2D Pixel Dungeon Asset Pack/can_reach.png" id="3_jdqpl"]
 [ext_resource type="Theme" uid="uid://c2t31618alhb4" path="res://theme/MainTheme.tres" id="3_s1k0n"]
-[ext_resource type="Texture2D" uid="uid://ca86ifr8jbcje" path="res://arts/2D Pixel Dungeon Asset Pack/GUI.png" id="5_bjnbp"]
-[ext_resource type="Theme" uid="uid://b0yoe5i10sd6k" path="res://theme/InformationTheme.tres" id="6_dl1a6"]
-[ext_resource type="Script" path="res://scenes/ui/information.gd" id="6_pk3m2"]
-[ext_resource type="FontFile" uid="uid://b7kulnvfh14d7" path="res://arts/pixel_rpg.ttf" id="7_0uyuw"]
+[ext_resource type="Texture2D" uid="uid://bka8n7xfnd61f" path="res://arts/2D Pixel Dungeon Asset Pack/on_chosen/on_chosen1.png" id="4_75q4g"]
+[ext_resource type="Texture2D" uid="uid://d1mbsdnpqcsbi" path="res://arts/2D Pixel Dungeon Asset Pack/on_chosen/on_chosen2.png" id="5_3scua"]
+[ext_resource type="Texture2D" uid="uid://c0p7k4yd31fq" path="res://arts/2D Pixel Dungeon Asset Pack/on_chosen/on_chosen3.png" id="6_5dli3"]
+[ext_resource type="Texture2D" uid="uid://bwtaldag1j8h5" path="res://arts/2D Pixel Dungeon Asset Pack/on_chosen/on_chosen4.png" id="7_elf6m"]
+[ext_resource type="Texture2D" uid="uid://byjnmjxhdurno" path="res://arts/2D Pixel Dungeon Asset Pack/on_chosen/on_chosen5.png" id="8_37rqq"]
+[ext_resource type="Texture2D" uid="uid://c0hf6rfjg5bee" path="res://arts/2D Pixel Dungeon Asset Pack/on_chosen/on_chosen6.png" id="9_5llbu"]
+[ext_resource type="Texture2D" uid="uid://cii8c2yyovny" path="res://arts/2D Pixel Dungeon Asset Pack/on_chosen/on_chosen7.png" id="10_74g80"]
+
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_3fwb5"]
+frames = 7
+frame_0/texture = ExtResource("4_75q4g")
+frame_0/duration = 0.1
+frame_1/texture = ExtResource("5_3scua")
+frame_1/duration = 0.2
+frame_2/texture = ExtResource("6_5dli3")
+frame_2/duration = 0.1
+frame_3/texture = ExtResource("7_elf6m")
+frame_3/duration = 0.1
+frame_4/texture = ExtResource("8_37rqq")
+frame_4/duration = 0.1
+frame_5/texture = ExtResource("9_5llbu")
+frame_5/duration = 0.1
+frame_6/texture = ExtResource("10_74g80")
+frame_6/duration = 0.1
 
 [sub_resource type="LabelSettings" id="LabelSettings_xt5s2"]
 font_size = 11
 outline_size = 2
 outline_color = Color(0, 0, 0, 1)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_dr7k1"]
-atlas = ExtResource("5_bjnbp")
-region = Rect2(2, 34, 44, 44)
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_evlos"]
-texture = SubResource("AtlasTexture_dr7k1")
-texture_margin_left = 5.0
-texture_margin_top = 5.0
-texture_margin_right = 5.0
-texture_margin_bottom = 5.0
-
-[sub_resource type="Theme" id="Theme_m3tr2"]
-Button/font_sizes/font_size = 9
-PanelContainer/styles/panel = SubResource("StyleBoxTexture_evlos")
-
-[sub_resource type="LabelSettings" id="LabelSettings_eertq"]
-font_size = 12
-font_color = Color(0.897279, 0.258733, 0.304506, 1)
-outline_size = 2
-outline_color = Color(0, 0, 0, 1)
-
-[sub_resource type="LabelSettings" id="LabelSettings_84yaa"]
-font_size = 9
-
-[sub_resource type="LabelSettings" id="LabelSettings_gc114"]
-font = ExtResource("7_0uyuw")
-font_size = 8
 
 [node name="BagSlot" type="MarginContainer"]
 offset_right = 63.0
@@ -55,10 +47,17 @@ theme = ExtResource("1_q5b3c")
 [node name="highlight" type="TextureRect" parent="."]
 visible = false
 layout_mode = 2
+mouse_filter = 2
 texture = ExtResource("3_jdqpl")
+
+[node name="Selected" type="TextureRect" parent="."]
+visible = false
+layout_mode = 2
+texture = SubResource("AnimatedTexture_3fwb5")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 2
+mouse_filter = 2
 theme_override_constants/margin_left = 3
 theme_override_constants/margin_top = 3
 theme_override_constants/margin_right = 3
@@ -66,6 +65,7 @@ theme_override_constants/margin_bottom = 3
 
 [node name="TextureRect" type="TextureRect" parent="MarginContainer"]
 layout_mode = 2
+mouse_filter = 2
 
 [node name="Label" type="Label" parent="MarginContainer"]
 layout_mode = 2
@@ -74,81 +74,6 @@ size_flags_vertical = 8
 theme = ExtResource("3_s1k0n")
 label_settings = SubResource("LabelSettings_xt5s2")
 
-[node name="Timer" type="Timer" parent="."]
-one_shot = true
-
-[node name="tips" type="Control" parent="."]
-layout_mode = 2
-mouse_filter = 2
-
-[node name="Usage" type="PanelContainer" parent="tips"]
-visible = false
-layout_mode = 2
-offset_right = 46.0
-offset_bottom = 79.0
-scale = Vector2(0.9, 0.9)
-theme = SubResource("Theme_m3tr2")
-
-[node name="VBoxContainer" type="VBoxContainer" parent="tips/Usage"]
-layout_mode = 2
-
-[node name="Use" type="Button" parent="tips/Usage/VBoxContainer"]
-layout_mode = 2
-size_flags_vertical = 3
-text = "xxxx"
-
-[node name="Drop" type="Button" parent="tips/Usage/VBoxContainer"]
-layout_mode = 2
-size_flags_vertical = 3
-text = "DROP"
-
-[node name="Cancel" type="Button" parent="tips/Usage/VBoxContainer"]
-layout_mode = 2
-size_flags_vertical = 3
-text = "CANCEL"
-
-[node name="Information" type="PanelContainer" parent="tips"]
-visible = false
-z_index = 4
-layout_mode = 2
-offset_right = 54.0
-offset_bottom = 59.0
-mouse_filter = 2
-theme = ExtResource("6_dl1a6")
-script = ExtResource("6_pk3m2")
-
-[node name="MarginContainer" type="MarginContainer" parent="tips/Information"]
-layout_mode = 2
-theme_override_constants/margin_left = 1
-theme_override_constants/margin_top = 1
-theme_override_constants/margin_right = 1
-theme_override_constants/margin_bottom = 1
-
-[node name="VBoxContainer" type="VBoxContainer" parent="tips/Information/MarginContainer"]
-layout_mode = 2
-
-[node name="Name" type="Label" parent="tips/Information/MarginContainer/VBoxContainer"]
-layout_mode = 2
-label_settings = SubResource("LabelSettings_eertq")
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Label" type="Label" parent="tips/Information/MarginContainer/VBoxContainer"]
-layout_mode = 2
-text = "----描述----"
-label_settings = SubResource("LabelSettings_84yaa")
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Description" type="Label" parent="tips/Information/MarginContainer/VBoxContainer"]
-layout_mode = 2
-label_settings = SubResource("LabelSettings_gc114")
-horizontal_alignment = 1
-vertical_alignment = 1
-autowrap_mode = 1
-
 [connection signal="gui_input" from="." to="." method="_on_gui_input"]
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
-[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
-[connection signal="pressed" from="tips/Usage/VBoxContainer/Cancel" to="." method="_on_cancel_pressed"]

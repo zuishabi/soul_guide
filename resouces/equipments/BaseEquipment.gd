@@ -6,6 +6,7 @@ extends Resource
 @export var name:String#物品的名称
 @export var description:String#物品的描述
 @export var equipement_type:String
+@export var value:int
 
 var count:int=1
 

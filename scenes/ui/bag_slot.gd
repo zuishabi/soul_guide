@@ -1,48 +1,42 @@
 class_name BagSlots
 extends MarginContainer
 
-@onready var timer = $Timer
+signal show_information(where:int)
+signal hide_information
+signal show_tips(where:int)
+
 @onready var highlight = $highlight
 @onready var texture_rect = $MarginContainer/TextureRect
 @onready var label = $MarginContainer/Label
 @onready var margin_container = $MarginContainer
-@onready var information =$tips/Information
-@onready var usage = $tips/Usage
+@onready var selected = $Selected
 
-var can_show_information:bool=true
+var where:int#此格子所在的库存位置
 
-func slot_update(equipment:Equipment):
+func slot_update(where:int):
+	self.where=where
 	margin_container.show()
-	texture_rect.texture=equipment.equip_texture
-	information.update_information(equipment.name,equipment.description)
-	can_show_information=true
-	usage.hide()
-	if(equipment.count>1):
+	texture_rect.texture=BagManager.inventory[where].equip_texture
+	if(BagManager.inventory[where].count>1):
 		label.show()
-		label.text=str(equipment.count)
+		label.text=str(BagManager.inventory[where].count)
 	else:
 		label.hide()
 
 func _on_mouse_entered():
 	highlight.show()
-	if margin_container.visible&&can_show_information:
-		timer.start()
+	if(margin_container.visible):
+		show_information.emit(where)
 
 func _on_mouse_exited():
 	highlight.hide()
-	information.hide()
-	timer.stop()
-
-func _on_timer_timeout():
-	information.position=get_local_mouse_position()
-	information.show()
+	if(margin_container.visible):
+		hide_information.emit()
 
 func _on_gui_input(event:InputEvent):
 	if event.is_action_pressed("mouse_left")&&margin_container.visible:
-		can_show_information=false
-		information.hide()
-		usage.show()
+		selected.show()
+		show_tips.emit(where)
 
-func _on_cancel_pressed():
-	usage.hide()
-	can_show_information=true
+func hide_tips():
+	selected.hide()

@@ -9,3 +9,5 @@ equip_texture = ExtResource("1_y4i3j")
 can_fold = true
 name = "key"
 description = "用于打开宝箱"
+equipement_type = ""
+value = 10

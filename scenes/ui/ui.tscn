@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=3 uid="uid://cdbhchrfy0n08"]
+[gd_scene load_steps=50 format=3 uid="uid://cdbhchrfy0n08"]
 
 [ext_resource type="Script" path="res://scenes/ui/StartMenu.gd" id="1_op5d7"]
 [ext_resource type="Theme" uid="uid://c2t31618alhb4" path="res://theme/MainTheme.tres" id="1_tuj5x"]
@@ -16,8 +16,13 @@
 [ext_resource type="Script" path="res://scenes/ui/GameUI.gd" id="14_afkfj"]
 [ext_resource type="Texture2D" uid="uid://ca86ifr8jbcje" path="res://arts/2D Pixel Dungeon Asset Pack/GUI.png" id="14_gklbd"]
 [ext_resource type="Script" path="res://scenes/ui/Bag.gd" id="16_6w6wa"]
+[ext_resource type="Theme" uid="uid://b0yoe5i10sd6k" path="res://theme/InformationTheme.tres" id="17_0qjxl"]
 [ext_resource type="Theme" uid="uid://djj7a7lkt57ug" path="res://theme/BagTheme.tres" id="17_tkly7"]
+[ext_resource type="Script" path="res://scenes/ui/tips.gd" id="17_yt57p"]
+[ext_resource type="Script" path="res://scenes/ui/Description.gd" id="18_7u3kc"]
 [ext_resource type="Texture2D" uid="uid://c0yvhhrxutes" path="res://arts/2D Pixel Dungeon Asset Pack/Character_animation/priests_idle/priest2/v1/priest2_v1_1.png" id="18_o1qci"]
+[ext_resource type="Texture2D" uid="uid://caro8ncgbteot" path="res://arts/2D Pixel Dungeon Asset Pack/items and trap_animation/coin/coin_1.png" id="19_8770f"]
+[ext_resource type="FontFile" uid="uid://b7kulnvfh14d7" path="res://arts/pixel_rpg.ttf" id="19_myjx0"]
 [ext_resource type="Texture2D" uid="uid://cnmotj8qwseon" path="res://arts/2D Pixel Dungeon Asset Pack/Character_animation/priests_idle/priest2/v1/priest2_v1_2.png" id="19_rxelm"]
 [ext_resource type="Texture2D" uid="uid://dt1xcc3luemol" path="res://arts/2D Pixel Dungeon Asset Pack/Character_animation/priests_idle/priest2/v1/priest2_v1_3.png" id="20_cht2v"]
 [ext_resource type="Texture2D" uid="uid://cvnn7jknaag6e" path="res://arts/2D Pixel Dungeon Asset Pack/Character_animation/priests_idle/priest2/v1/priest2_v1_4.png" id="21_8fjf2"]
@@ -125,6 +130,22 @@ frame_2/texture = ExtResource("20_cht2v")
 frame_2/duration = 0.2
 frame_3/texture = ExtResource("21_8fjf2")
 frame_3/duration = 0.2
+
+[sub_resource type="LabelSettings" id="LabelSettings_deobl"]
+font = ExtResource("19_myjx0")
+
+[sub_resource type="LabelSettings" id="LabelSettings_1f7c8"]
+font = ExtResource("19_myjx0")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xbbgb"]
+bg_color = Color(0.176471, 0.176471, 0.176471, 0.498039)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bu07c"]
+bg_color = Color(0.176471, 0.176471, 0.176471, 0.635294)
+
+[sub_resource type="Theme" id="Theme_5rxit"]
+RichTextLabel/styles/focus = SubResource("StyleBoxFlat_xbbgb")
+RichTextLabel/styles/normal = SubResource("StyleBoxFlat_bu07c")
 
 [node name="UI" type="CanvasLayer"]
 process_mode = 3
@@ -660,6 +681,103 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
+[node name="tips" type="PanelContainer" parent="Bag"]
+visible = false
+z_index = 1
+layout_mode = 0
+offset_left = 552.0
+offset_top = 200.0
+offset_right = 590.0
+offset_bottom = 266.0
+script = ExtResource("17_yt57p")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Bag/tips"]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="using" type="Button" parent="Bag/tips/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("19_myjx0")
+theme_override_font_sizes/font_size = 10
+text = "USING"
+
+[node name="drop" type="Button" parent="Bag/tips/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("19_myjx0")
+theme_override_font_sizes/font_size = 10
+text = "DROP"
+
+[node name="cancel" type="Button" parent="Bag/tips/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("19_myjx0")
+theme_override_font_sizes/font_size = 10
+text = "CANCEL"
+
+[node name="Description" type="PanelContainer" parent="Bag"]
+visible = false
+layout_mode = 2
+offset_left = 837.0
+offset_top = 142.0
+offset_right = 1051.0
+offset_bottom = 504.0
+size_flags_vertical = 3
+mouse_filter = 2
+theme = ExtResource("17_0qjxl")
+script = ExtResource("18_7u3kc")
+
+[node name="MarginContainer" type="MarginContainer" parent="Bag/Description"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Bag/Description/MarginContainer"]
+layout_mode = 2
+
+[node name="Name" type="Label" parent="Bag/Description/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "NAME"
+label_settings = SubResource("LabelSettings_deobl")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="DescriptionText" type="RichTextLabel" parent="Bag/Description/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("1_tuj5x")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Bag/Description/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 38)
+layout_mode = 2
+
+[node name="Coin" type="TextureRect" parent="Bag/Description/MarginContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+texture = ExtResource("19_8770f")
+
+[node name="CoinLabel" type="Label" parent="Bag/Description/MarginContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(54, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+label_settings = SubResource("LabelSettings_1f7c8")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Coin2" type="TextureRect" parent="Bag/Description/MarginContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+texture = ExtResource("19_8770f")
+
+[node name="CoinLabel2" type="Label" parent="Bag/Description/MarginContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(54, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+label_settings = SubResource("LabelSettings_1f7c8")
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="Exit" type="TextureRect" parent="Bag"]
 layout_mode = 2
 offset_left = 799.0
@@ -667,6 +785,9 @@ offset_top = 154.0
 offset_right = 826.0
 offset_bottom = 179.0
 texture = ExtResource("12_g5u8n")
+
+[node name="Description_CD" type="Timer" parent="Bag"]
+wait_time = 0.1
 
 [node name="OpManager" type="Control" parent="."]
 visible = false
@@ -688,7 +809,7 @@ offset_bottom = 645.0
 [node name="RichTextLabel" type="RichTextLabel" parent="OpManager/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
-theme = ExtResource("1_tuj5x")
+theme = SubResource("Theme_5rxit")
 scroll_following = true
 shortcut_keys_enabled = false
 
@@ -715,5 +836,7 @@ text = "确认"
 [connection signal="pressed" from="InsideMenu/VBoxContainer/SettingsButton" to="InsideMenu" method="_on_settings_button_pressed"]
 [connection signal="pressed" from="InsideMenu/VBoxContainer/MainMenuButton" to="InsideMenu" method="_on_main_menu_button_pressed"]
 [connection signal="pressed" from="InsideMenu/VBoxContainer/ExitButton" to="InsideMenu" method="_on_exit_button_pressed"]
+[connection signal="pressed" from="Bag/tips/VBoxContainer/cancel" to="Bag" method="_on_cancel_pressed"]
 [connection signal="gui_input" from="Bag/Exit" to="Bag" method="_on_texture_rect_gui_input"]
+[connection signal="timeout" from="Bag/Description_CD" to="Bag" method="_on_description_cd_timeout"]
 [connection signal="pressed" from="OpManager/VBoxContainer/HBoxContainer/Button" to="OpManager" method="_on_button_pressed"]

@@ -10,3 +10,4 @@ can_fold = false
 name = "chest"
 description = "用于存放物品的容器"
 equipement_type = ""
+value = 200

@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=14 format=3 uid="uid://c2t31618alhb4"]
+[gd_resource type="Theme" load_steps=12 format=3 uid="uid://c2t31618alhb4"]
 
 [ext_resource type="FontFile" uid="uid://b7kulnvfh14d7" path="res://arts/pixel_rpg.ttf" id="1_i6tkp"]
 [ext_resource type="Texture2D" uid="uid://ca86ifr8jbcje" path="res://arts/2D Pixel Dungeon Asset Pack/GUI.png" id="2_io5iq"]
@@ -30,12 +30,6 @@ texture_margin_top = 3.0
 texture_margin_right = 3.0
 texture_margin_bottom = 3.0
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fx3fj"]
-bg_color = Color(0.176471, 0.176471, 0.176471, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yfarb"]
-bg_color = Color(0.176471, 0.176471, 0.176471, 1)
-
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4rgag"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rcd3v"]
@@ -51,7 +45,5 @@ Label/font_sizes/font_size = 16
 Label/fonts/font = ExtResource("1_i6tkp")
 OptionButton/font_sizes/font_size = 16
 PanelContainer/styles/panel = SubResource("StyleBoxTexture_lmddp")
-RichTextLabel/styles/focus = SubResource("StyleBoxFlat_fx3fj")
-RichTextLabel/styles/normal = SubResource("StyleBoxFlat_yfarb")
 TextEdit/styles/focus = SubResource("StyleBoxFlat_4rgag")
 TextEdit/styles/normal = SubResource("StyleBoxFlat_rcd3v")

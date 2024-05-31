@@ -11,5 +11,5 @@ func slots_update():
 	for i in slots:
 		i.margin_container.hide()
 	for i in BagManager.inventory:
-		slots[size].slot_update(i)
+		slots[size].slot_update(size)
 		size+=1
