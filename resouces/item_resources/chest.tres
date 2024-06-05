@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="chest" load_steps=3 format=3 uid="uid://c6m6cn7g2upi8"]
+
+[ext_resource type="Texture2D" uid="uid://datxap3pict64" path="res://arts/2D Pixel Dungeon Asset Pack/items and trap_animation/chest/chest_3.png" id="1_m8hdt"]
+[ext_resource type="Script" path="res://resouces/item_scripts/chest.gd" id="1_q8ndi"]
+
+[resource]
+script = ExtResource("1_q8ndi")
+item_texture = ExtResource("1_m8hdt")
+can_fold = false
+name = "chest"
+description = "CHEST"
+item_type = "Item"
+value = 200
+equipment_kind = ""

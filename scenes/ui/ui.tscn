@@ -1,4 +1,4 @@
-[gd_scene load_steps=50 format=3 uid="uid://cdbhchrfy0n08"]
+[gd_scene load_steps=51 format=3 uid="uid://cdbhchrfy0n08"]
 
 [ext_resource type="Script" path="res://scenes/ui/StartMenu.gd" id="1_op5d7"]
 [ext_resource type="Theme" uid="uid://c2t31618alhb4" path="res://theme/MainTheme.tres" id="1_tuj5x"]
@@ -20,6 +20,7 @@
 [ext_resource type="Theme" uid="uid://djj7a7lkt57ug" path="res://theme/BagTheme.tres" id="17_tkly7"]
 [ext_resource type="Script" path="res://scenes/ui/tips.gd" id="17_yt57p"]
 [ext_resource type="Script" path="res://scenes/ui/Description.gd" id="18_7u3kc"]
+[ext_resource type="PackedScene" uid="uid://cwlcwjosxosd3" path="res://scenes/ui/equipment_slot.tscn" id="18_jknoo"]
 [ext_resource type="Texture2D" uid="uid://c0yvhhrxutes" path="res://arts/2D Pixel Dungeon Asset Pack/Character_animation/priests_idle/priest2/v1/priest2_v1_1.png" id="18_o1qci"]
 [ext_resource type="Texture2D" uid="uid://caro8ncgbteot" path="res://arts/2D Pixel Dungeon Asset Pack/items and trap_animation/coin/coin_1.png" id="19_8770f"]
 [ext_resource type="FontFile" uid="uid://b7kulnvfh14d7" path="res://arts/pixel_rpg.ttf" id="19_myjx0"]
@@ -28,8 +29,8 @@
 [ext_resource type="Texture2D" uid="uid://cvnn7jknaag6e" path="res://arts/2D Pixel Dungeon Asset Pack/Character_animation/priests_idle/priest2/v1/priest2_v1_4.png" id="21_8fjf2"]
 [ext_resource type="Theme" uid="uid://tuqcinp2ysp1" path="res://theme/SlotTheme.tres" id="22_610n6"]
 [ext_resource type="Script" path="res://scenes/ui/OpManager.gd" id="23_3k5ty"]
-[ext_resource type="Script" path="res://scenes/ui/GridSlots.gd" id="23_7nrbm"]
 [ext_resource type="PackedScene" uid="uid://bti26imhoc0qy" path="res://scenes/ui/bag_slot.tscn" id="23_wao6u"]
+[ext_resource type="Script" path="res://scenes/ui/UITips.gd" id="31_vfdv7"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_qaai8"]
 font_size = 60
@@ -453,10 +454,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -261.0
-offset_top = -182.5
+offset_left = -272.0
+offset_top = -182.0
 offset_right = 261.0
-offset_bottom = 182.5
+offset_bottom = 183.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
@@ -495,38 +496,32 @@ theme_override_constants/margin_right = 2
 [node name="VBoxContainer" type="VBoxContainer" parent="Bag/PanelContainer/VBoxContainer/HBoxContainer/PanelContainer/MarginContainer"]
 layout_mode = 2
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="Bag/PanelContainer/VBoxContainer/HBoxContainer/PanelContainer/MarginContainer/VBoxContainer"]
+[node name="Equipments" type="HBoxContainer" parent="Bag/PanelContainer/VBoxContainer/HBoxContainer/PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_constants/separation = 6
 
-[node name="Equip_1" type="VBoxContainer" parent="Bag/PanelContainer/VBoxContainer/HBoxContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer2"]
+[node name="Equip_1" type="VBoxContainer" parent="Bag/PanelContainer/VBoxContainer/HBoxContainer/PanelContainer/MarginContainer/VBoxContainer/Equipments"]
 layout_mode = 2
-theme_override_constants/separation = 20
+theme_override_constants/separation = 28
 
-[node name="PanelContainer" type="PanelContainer" parent="Bag/PanelContainer/VBoxContainer/HBoxContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer2/Equip_1"]
-custom_minimum_size = Vector2(50, 0)
+[node name="BagSlot" parent="Bag/PanelContainer/VBoxContainer/HBoxContainer/PanelContainer/MarginContainer/VBoxContainer/Equipments/Equip_1" instance=ExtResource("18_jknoo")]
+custom_minimum_size = Vector2(53, 53)
 layout_mode = 2
-size_flags_vertical = 3
-theme = ExtResource("22_610n6")
 
-[node name="PanelContainer2" type="PanelContainer" parent="Bag/PanelContainer/VBoxContainer/HBoxContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer2/Equip_1"]
-custom_minimum_size = Vector2(50, 0)
+[node name="BagSlot2" parent="Bag/PanelContainer/VBoxContainer/HBoxContainer/PanelContainer/MarginContainer/VBoxContainer/Equipments/Equip_1" instance=ExtResource("18_jknoo")]
+custom_minimum_size = Vector2(53, 53)
 layout_mode = 2
-size_flags_vertical = 3
-theme = ExtResource("22_610n6")
 
-[node name="PanelContainer3" type="PanelContainer" parent="Bag/PanelContainer/VBoxContainer/HBoxContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer2/Equip_1"]
-custom_minimum_size = Vector2(50, 0)
+[node name="BagSlot3" parent="Bag/PanelContainer/VBoxContainer/HBoxContainer/PanelContainer/MarginContainer/VBoxContainer/Equipments/Equip_1" instance=ExtResource("18_jknoo")]
+custom_minimum_size = Vector2(53, 53)
 layout_mode = 2
-size_flags_vertical = 3
-theme = ExtResource("22_610n6")
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="Bag/PanelContainer/VBoxContainer/HBoxContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer2"]
+[node name="PlayerTeture" type="VBoxContainer" parent="Bag/PanelContainer/VBoxContainer/HBoxContainer/PanelContainer/MarginContainer/VBoxContainer/Equipments"]
 custom_minimum_size = Vector2(0, 215)
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="MarginContainer" type="MarginContainer" parent="Bag/PanelContainer/VBoxContainer/HBoxContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer2/VBoxContainer2"]
+[node name="MarginContainer" type="MarginContainer" parent="Bag/PanelContainer/VBoxContainer/HBoxContainer/PanelContainer/MarginContainer/VBoxContainer/Equipments/PlayerTeture"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -534,31 +529,28 @@ theme_override_constants/margin_left = 0
 theme_override_constants/margin_top = 52
 theme_override_constants/margin_bottom = 52
 
-[node name="TextureRect" type="TextureRect" parent="Bag/PanelContainer/VBoxContainer/HBoxContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer2/VBoxContainer2/MarginContainer"]
+[node name="TextureRect" type="TextureRect" parent="Bag/PanelContainer/VBoxContainer/HBoxContainer/PanelContainer/MarginContainer/VBoxContainer/Equipments/PlayerTeture/MarginContainer"]
 custom_minimum_size = Vector2(0, 104)
 layout_mode = 2
 size_flags_vertical = 3
 texture = SubResource("AnimatedTexture_0jj5v")
 
-[node name="Equip_2" type="VBoxContainer" parent="Bag/PanelContainer/VBoxContainer/HBoxContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer2"]
+[node name="Equip_2" type="VBoxContainer" parent="Bag/PanelContainer/VBoxContainer/HBoxContainer/PanelContainer/MarginContainer/VBoxContainer/Equipments"]
 layout_mode = 2
 theme = ExtResource("22_610n6")
-theme_override_constants/separation = 20
+theme_override_constants/separation = 28
 
-[node name="PanelContainer" type="PanelContainer" parent="Bag/PanelContainer/VBoxContainer/HBoxContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer2/Equip_2"]
-custom_minimum_size = Vector2(50, 0)
+[node name="BagSlot" parent="Bag/PanelContainer/VBoxContainer/HBoxContainer/PanelContainer/MarginContainer/VBoxContainer/Equipments/Equip_2" instance=ExtResource("18_jknoo")]
+custom_minimum_size = Vector2(53, 53)
 layout_mode = 2
-size_flags_vertical = 3
 
-[node name="PanelContainer2" type="PanelContainer" parent="Bag/PanelContainer/VBoxContainer/HBoxContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer2/Equip_2"]
-custom_minimum_size = Vector2(50, 0)
+[node name="BagSlot2" parent="Bag/PanelContainer/VBoxContainer/HBoxContainer/PanelContainer/MarginContainer/VBoxContainer/Equipments/Equip_2" instance=ExtResource("18_jknoo")]
+custom_minimum_size = Vector2(53, 53)
 layout_mode = 2
-size_flags_vertical = 3
 
-[node name="PanelContainer3" type="PanelContainer" parent="Bag/PanelContainer/VBoxContainer/HBoxContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer2/Equip_2"]
-custom_minimum_size = Vector2(50, 0)
+[node name="BagSlot3" parent="Bag/PanelContainer/VBoxContainer/HBoxContainer/PanelContainer/MarginContainer/VBoxContainer/Equipments/Equip_2" instance=ExtResource("18_jknoo")]
+custom_minimum_size = Vector2(53, 53)
 layout_mode = 2
-size_flags_vertical = 3
 
 [node name="MarginContainer" type="MarginContainer" parent="Bag/PanelContainer/VBoxContainer/HBoxContainer/PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
@@ -599,7 +591,6 @@ mouse_filter = 2
 [node name="GridSlots" type="GridContainer" parent="Bag/PanelContainer/VBoxContainer/HBoxContainer/Slots"]
 layout_mode = 2
 columns = 4
-script = ExtResource("23_7nrbm")
 
 [node name="BagSlot2" parent="Bag/PanelContainer/VBoxContainer/HBoxContainer/Slots/GridSlots" instance=ExtResource("23_wao6u")]
 layout_mode = 2
@@ -682,7 +673,6 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="tips" type="PanelContainer" parent="Bag"]
-visible = false
 z_index = 1
 layout_mode = 0
 offset_left = 552.0
@@ -717,7 +707,6 @@ theme_override_font_sizes/font_size = 10
 text = "CANCEL"
 
 [node name="Description" type="PanelContainer" parent="Bag"]
-visible = false
 layout_mode = 2
 offset_left = 837.0
 offset_top = 142.0
@@ -825,6 +814,52 @@ size_flags_horizontal = 3
 layout_mode = 2
 text = "确认"
 
+[node name="Tips" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("31_vfdv7")
+
+[node name="PanelContainer" type="PanelContainer" parent="Tips"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -152.0
+offset_top = -95.0
+offset_right = 152.0
+offset_bottom = 95.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Tips/PanelContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Tips/PanelContainer/VBoxContainer"]
+layout_mode = 2
+text = "提示"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Tips/PanelContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Button" type="Button" parent="Tips"]
+layout_mode = 0
+offset_left = 698.0
+offset_top = 235.0
+offset_right = 716.0
+offset_bottom = 252.0
+icon = ExtResource("12_g5u8n")
+
 [connection signal="pressed" from="StartMenu/VBoxContainer/StartButton" to="StartMenu" method="_on_start_button_pressed"]
 [connection signal="pressed" from="StartMenu/VBoxContainer/SettingsButton" to="StartMenu" method="_on_settings_button_pressed"]
 [connection signal="pressed" from="StartMenu/VBoxContainer/ExitButton" to="StartMenu" method="_on_exit_button_pressed"]
@@ -836,7 +871,9 @@ text = "确认"
 [connection signal="pressed" from="InsideMenu/VBoxContainer/SettingsButton" to="InsideMenu" method="_on_settings_button_pressed"]
 [connection signal="pressed" from="InsideMenu/VBoxContainer/MainMenuButton" to="InsideMenu" method="_on_main_menu_button_pressed"]
 [connection signal="pressed" from="InsideMenu/VBoxContainer/ExitButton" to="InsideMenu" method="_on_exit_button_pressed"]
-[connection signal="pressed" from="Bag/tips/VBoxContainer/cancel" to="Bag" method="_on_cancel_pressed"]
+[connection signal="pressed" from="Bag/tips/VBoxContainer/using" to="Bag/tips" method="_on_using_pressed"]
+[connection signal="pressed" from="Bag/tips/VBoxContainer/cancel" to="Bag/tips" method="_on_cancel_pressed"]
 [connection signal="gui_input" from="Bag/Exit" to="Bag" method="_on_texture_rect_gui_input"]
 [connection signal="timeout" from="Bag/Description_CD" to="Bag" method="_on_description_cd_timeout"]
 [connection signal="pressed" from="OpManager/VBoxContainer/HBoxContainer/Button" to="OpManager" method="_on_button_pressed"]
+[connection signal="pressed" from="Tips/Button" to="Tips" method="_on_button_pressed"]

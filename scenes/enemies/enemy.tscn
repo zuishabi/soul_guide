@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scenes/enemies/enemy.gd" id="1_bvm4f"]
 [ext_resource type="Texture2D" uid="uid://d04sdfwinwbkh" path="res://arts/2D Pixel Dungeon Asset Pack/character and tileset/Dungeon_Character.png" id="2_oyrbc"]
-[ext_resource type="Script" path="res://Components/ComponentsManager.gd" id="3_t5e7d"]
+[ext_resource type="Script" path="res://scenes/enemies/ComponentsManager.gd" id="3_0cduo"]
 [ext_resource type="PackedScene" uid="uid://rg2jbeaomm82" path="res://Components/entity_label.tscn" id="4_368vl"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3la07"]
@@ -26,8 +26,7 @@ shape = SubResource("RectangleShape2D_3la07")
 texture = SubResource("AtlasTexture_m3g4n")
 
 [node name="Components" type="Node2D" parent="."]
-script = ExtResource("3_t5e7d")
-components = [""]
+script = ExtResource("3_0cduo")
 
 [node name="EntityLabel" parent="Components" instance=ExtResource("4_368vl")]
 label_1 = "ZOMBIE"

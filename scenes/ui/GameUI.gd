@@ -18,5 +18,3 @@ func is_in_dungeon(value:bool):
 		show()
 	else:
 		hide()
-
-

@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="HealthPotion" load_steps=3 format=3 uid="uid://dj85ybjhmtda6"]
+
+[ext_resource type="Script" path="res://resouces/item_scripts/health_potion.gd" id="1_6jxhp"]
+[ext_resource type="Texture2D" uid="uid://bi35ho3gqrnvw" path="res://arts/2D Pixel Dungeon Asset Pack/items and trap_animation/flasks/flasks_1_1.png" id="1_7xjwe"]
+
+[resource]
+script = ExtResource("1_6jxhp")
+item_texture = ExtResource("1_7xjwe")
+can_fold = true
+name = "health_potion"
+description = "HEALTHPOTION"
+item_type = "Item"
+value = 20
+equipment_kind = ""

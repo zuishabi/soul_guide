@@ -20,10 +20,11 @@ config/icon="res://icon.svg"
 Global="*res://globals/global.gd"
 PlayerStats="*res://globals/player_stats.gd"
 Transitionlayer="*res://globals/transitionlayer.tscn"
-Ui="*res://scenes/ui/ui.tscn"
 PlayerEffectManager="*res://globals/PlayerEffectManager.gd"
-EquipmentsList="*res://resouces/equipments/equipments_list.gd"
 BagManager="*res://globals/BagManager.gd"
+GlobalItemList="*res://resouces/item_scripts/item_list.gd"
+Ui="*res://scenes/ui/ui.tscn"
+TipsEmitter="*res://globals/TipsEmitter.gd"
 
 [display]
 

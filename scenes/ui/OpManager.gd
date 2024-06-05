@@ -21,20 +21,22 @@ func process_command(command:String):
 		var args=parts.slice(1,parts.size())
 		if not has_method(cmd):
 			push_error("没有找到匹配的方法:",cmd)
-			add_imformation("未找到此方法")
+			add_information("未找到此方法")
 			line_edit.clear()
 			return
 		callv(cmd,args)
 		line_edit.clear()
 
 func add_item(item_name:String,count:String):
-	BagManager.add_item(EquipmentsList.item_dictionary[item_name],int(count))
-	add_imformation("成功添加 "+str(count)+"个"+item_name)
+	BagManager.add_item(item_name,int(count))
+	add_information("成功添加 "+str(count)+"个"+item_name)
 
 func delete_item(item_name:String,count:String):
-	BagManager.delete_item(EquipmentsList.item_dictionary[item_name],int(count))
-	add_imformation("成功删除 "+str(count)+"个"+item_name)
+	if BagManager.delete_item(item_name,int(count)):
+		add_information("成功删除 "+str(count)+"个"+item_name)
+	else:
+		add_information("删除失败")
 
-func add_imformation(text:String):
+func add_information(text:String):
 	rich_text_label.add_text(Time.get_time_string_from_system()+':'+text)
 	rich_text_label.newline()

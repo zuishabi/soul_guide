@@ -1,15 +1,19 @@
-id,zh,en
-START,开始游戏,start
-SETTINGS,设置,settings
-ABOUT,关于,about
-EXIT,退出游戏,exit
-LANGUAGE,语言,language
-MENU,菜单,menu
-MAINMENU,主菜单,main menu
-BACK,返回游戏,back
-GOTODUNGEON,前往地牢,go to the dungeon
-PLAYERNAME,玩家姓名,player name
-ZOMBIE,僵尸,zombie
-BAG,背包,bag
-CANCEL,取消,cancel
-DROP,丢弃,drop
+id,en,zh
+START,start,开始游戏
+SETTINGS,settings,设置
+ABOUT,about,关于
+EXIT,exit,退出游戏
+LANGUAGE,language,语言
+MENU,menu,菜单
+MAINMENU,main menu,主菜单
+BACK,back,返回游戏
+GOTODUNGEON,go to the dungeon,前往地牢
+PLAYERNAME,player name,玩家姓名
+ZOMBIE,zombie,僵尸
+BAG,bag,背包
+***,*****************************,***********
+CANCEL,cancel,取消
+DROP,drop,丢弃
+USING,using,使用
+EQUIP,equip,装备
+UNFIX,unfix,脱下

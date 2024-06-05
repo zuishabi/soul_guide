@@ -46,12 +46,12 @@ func _input(event):
 			var id=0
 			for i in path:
 				var point=astar.get_point_position(i)
-				var tween=create_tween()
 				var next_point=tile_map.map_to_local(point)
 				if(PlayerStats.player_pos.x>next_point.x):
 					player.flip(0)
 				elif(PlayerStats.player_pos.x<next_point.x):
 					player.flip(1)
+				var tween=create_tween()
 				tween.tween_property(player,"position",next_point,0.18)
 				await tween.finished
 				tile_interact(point,1)
@@ -92,3 +92,4 @@ func process_mouse_target():
 		mouse_target.show()
 	else:
 		mouse_target.hide()
+

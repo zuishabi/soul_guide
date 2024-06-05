@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="key" load_steps=3 format=3 uid="uid://cod61iqmuemgk"]
+
+[ext_resource type="Texture2D" uid="uid://c8j50qo3qvynv" path="res://arts/2D Pixel Dungeon Asset Pack/items and trap_animation/keys/keys_1_1.png" id="1_ktr3j"]
+[ext_resource type="Script" path="res://resouces/item_scripts/key.gd" id="2_76tya"]
+
+[resource]
+script = ExtResource("2_76tya")
+item_texture = ExtResource("1_ktr3j")
+can_fold = true
+name = "key"
+description = "KEY"
+item_type = "Item"
+value = 10
+equipment_kind = ""

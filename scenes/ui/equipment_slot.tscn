@@ -1,0 +1,7 @@
+[gd_scene load_steps=3 format=3 uid="uid://cwlcwjosxosd3"]
+
+[ext_resource type="PackedScene" uid="uid://bti26imhoc0qy" path="res://scenes/ui/bag_slot.tscn" id="1_5ui21"]
+[ext_resource type="Script" path="res://scenes/ui/equipment_slot.gd" id="2_e5h0i"]
+
+[node name="BagSlot" instance=ExtResource("1_5ui21")]
+script = ExtResource("2_e5h0i")
