@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dmcsn7bbb7j8p"
-path="res://.godot/imported/can_fightt.png-234e537cf557fca8cfffd0f1ccc8c881.ctex"
+uid="uid://bsxwusp8wol1k"
+path="res://.godot/imported/chestarmorr.png-48dd630be25bb8c76f1cb5a6ca46dcb3.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://arts/2D Pixel Dungeon Asset Pack/can_fightt.png"
-dest_files=["res://.godot/imported/can_fightt.png-234e537cf557fca8cfffd0f1ccc8c881.ctex"]
+source_file="res://arts/2D Pixel Dungeon Asset Pack/gui/chestarmorr.png"
+dest_files=["res://.godot/imported/chestarmorr.png-48dd630be25bb8c76f1cb5a6ca46dcb3.ctex"]
 
 [params]
 

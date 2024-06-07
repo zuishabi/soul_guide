@@ -5,11 +5,11 @@
 [ext_resource type="Texture2D" uid="uid://cbhun1bnv5xpi" path="res://arts/2D Pixel Dungeon Asset Pack/character and tileset/Dungeon_Tileset.png" id="2_kotr6"]
 [ext_resource type="PackedScene" uid="uid://cvmvkklb2dqu5" path="res://scenes/player/player.tscn" id="2_lf3te"]
 [ext_resource type="Script" path="res://objects/HealthPotion.gd" id="3_goc04"]
-[ext_resource type="Texture2D" uid="uid://dby1iikiulohg" path="res://arts/2D Pixel Dungeon Asset Pack/can_reach.png" id="4_2cxf2"]
+[ext_resource type="Texture2D" uid="uid://dby1iikiulohg" path="res://arts/2D Pixel Dungeon Asset Pack/gui/can_reach.png" id="4_2cxf2"]
 [ext_resource type="Script" path="res://objects/SpikeTrap.gd" id="5_675eb"]
 [ext_resource type="Texture2D" uid="uid://co7slxb84i7k5" path="res://arts/2D Pixel Dungeon Asset Pack/character and tileset/demonstration.png" id="5_hwsi1"]
 [ext_resource type="PackedScene" uid="uid://b3ftelkvxw4mi" path="res://scenes/enemies/enemy.tscn" id="5_n3w1w"]
-[ext_resource type="Texture2D" uid="uid://fefp0svoqpee" path="res://arts/2D Pixel Dungeon Asset Pack/target_place.png" id="5_r26lr"]
+[ext_resource type="Texture2D" uid="uid://fefp0svoqpee" path="res://arts/2D Pixel Dungeon Asset Pack/gui/target_place.png" id="5_r26lr"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_eitgs"]
 texture = ExtResource("2_kotr6")

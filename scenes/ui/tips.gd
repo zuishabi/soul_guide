@@ -1,13 +1,15 @@
 extends PanelContainer
 
 var current_slot:int=-1#当当前格子为-1时说明没有被选中
-var current_kind:String
-var current_item:Item
+var current_kind:String#当前选中的类型
+var current_item:Item#当前储存的物品
+var current_where:int#当前存储物品所在的位置
 
 @onready var using = $VBoxContainer/using
 @onready var bag = $".."
 
 func update_tips(where:int,kind:String):
+	current_where=where
 	if(current_slot!=-1&&current_kind!=kind):
 		get_parent().hide_tips()
 	elif(current_slot!=-1&&current_slot!=where):
@@ -28,7 +30,12 @@ func get_item(where:int,kind:String)->Item:
 		return BagManager.equipments_inventory[where]
 
 func _on_using_pressed():
-	current_item.effect()
+	if(using.text=="USING"):
+		current_item.effect()
+	elif(using.text=="EQUIP"):
+		BagManager.equip(current_where)
+	else:
+		BagManager.unfix(current_where)
 	bag.hide_tips()
 
 func _on_cancel_pressed():

@@ -28,11 +28,11 @@ func process_command(command:String):
 		line_edit.clear()
 
 func add_item(item_name:String,count:String):
-	BagManager.add_item(item_name,int(count))
+	BagManager.add_item(GlobalItemList.item_dictionary[item_name],int(count))
 	add_information("成功添加 "+str(count)+"个"+item_name)
 
 func delete_item(item_name:String,count:String):
-	if BagManager.delete_item(item_name,int(count)):
+	if BagManager.delete_item(GlobalItemList.item_dictionary[item_name],int(count)):
 		add_information("成功删除 "+str(count)+"个"+item_name)
 	else:
 		add_information("删除失败")

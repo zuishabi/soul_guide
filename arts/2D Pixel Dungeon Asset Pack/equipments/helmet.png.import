@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://fefp0svoqpee"
-path="res://.godot/imported/target_place.png-e7f45de494353d902867ba9b9b26b3a3.ctex"
+uid="uid://cxc10yxa3lo1d"
+path="res://.godot/imported/helmet.png-9aeb7964f779ddd9b0fcd9075d46826f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://arts/2D Pixel Dungeon Asset Pack/target_place.png"
-dest_files=["res://.godot/imported/target_place.png-e7f45de494353d902867ba9b9b26b3a3.ctex"]
+source_file="res://arts/2D Pixel Dungeon Asset Pack/equipments/helmet.png"
+dest_files=["res://.godot/imported/helmet.png-9aeb7964f779ddd9b0fcd9075d46826f.ctex"]
 
 [params]
 

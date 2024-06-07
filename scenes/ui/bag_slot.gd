@@ -5,7 +5,6 @@ signal show_information(where:int)
 signal hide_information
 signal show_tips(where:int)
 
-
 @onready var highlight = $highlight
 @onready var texture_rect = $MarginContainer/TextureRect
 @onready var label = $MarginContainer/Label

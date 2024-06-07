@@ -1,7 +1,7 @@
 [gd_scene load_steps=10 format=3 uid="uid://rg2jbeaomm82"]
 
 [ext_resource type="Script" path="res://Components/EntityLabel.gd" id="1_nkeug"]
-[ext_resource type="Texture2D" uid="uid://ca86ifr8jbcje" path="res://arts/2D Pixel Dungeon Asset Pack/GUI.png" id="2_uj6dr"]
+[ext_resource type="Texture2D" uid="uid://ca86ifr8jbcje" path="res://arts/2D Pixel Dungeon Asset Pack/gui/GUI.png" id="2_uj6dr"]
 [ext_resource type="Theme" uid="uid://c2t31618alhb4" path="res://theme/MainTheme.tres" id="3_lwsn5"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fe4vf"]

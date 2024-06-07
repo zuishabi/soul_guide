@@ -12,9 +12,9 @@ var tile_pos
 var target_pos
 var tile_id:int=1
 var astar:TileMapAStar2D
-var can_reach_texture=preload("res://arts/2D Pixel Dungeon Asset Pack/can_reach.png")
-var can_fight_texture=preload("res://arts/2D Pixel Dungeon Asset Pack/can_fightt.png")
-var can_get_texture=preload("res://arts/2D Pixel Dungeon Asset Pack/can_get.png")
+var can_reach_texture=preload("res://arts/2D Pixel Dungeon Asset Pack/gui/can_reach.png")
+var can_fight_texture=preload("res://arts/2D Pixel Dungeon Asset Pack/gui/can_fightt.png")
+var can_get_texture=preload("res://arts/2D Pixel Dungeon Asset Pack/gui/can_get.png")
 
 #-------------------------------------------对内-----------------------------------------------------
 func _ready():

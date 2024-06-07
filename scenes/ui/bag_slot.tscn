@@ -2,7 +2,7 @@
 
 [ext_resource type="Theme" uid="uid://tuqcinp2ysp1" path="res://theme/SlotTheme.tres" id="1_q5b3c"]
 [ext_resource type="Script" path="res://scenes/ui/bag_slot.gd" id="1_to01j"]
-[ext_resource type="Texture2D" uid="uid://dby1iikiulohg" path="res://arts/2D Pixel Dungeon Asset Pack/can_reach.png" id="3_jdqpl"]
+[ext_resource type="Texture2D" uid="uid://dby1iikiulohg" path="res://arts/2D Pixel Dungeon Asset Pack/gui/can_reach.png" id="3_jdqpl"]
 [ext_resource type="Theme" uid="uid://c2t31618alhb4" path="res://theme/MainTheme.tres" id="3_s1k0n"]
 [ext_resource type="Texture2D" uid="uid://bka8n7xfnd61f" path="res://arts/2D Pixel Dungeon Asset Pack/on_chosen/on_chosen1.png" id="4_75q4g"]
 [ext_resource type="Texture2D" uid="uid://d1mbsdnpqcsbi" path="res://arts/2D Pixel Dungeon Asset Pack/on_chosen/on_chosen2.png" id="5_3scua"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=51 format=3 uid="uid://cdbhchrfy0n08"]
+[gd_scene load_steps=47 format=3 uid="uid://cdbhchrfy0n08"]
 
 [ext_resource type="Script" path="res://scenes/ui/StartMenu.gd" id="1_op5d7"]
 [ext_resource type="Theme" uid="uid://c2t31618alhb4" path="res://theme/MainTheme.tres" id="1_tuj5x"]
@@ -14,15 +14,12 @@
 [ext_resource type="Texture2D" uid="uid://bpuaal1a7l7f5" path="res://Exit.tres" id="12_g5u8n"]
 [ext_resource type="Script" path="res://scenes/ui/InsideMenu.gd" id="13_sbgea"]
 [ext_resource type="Script" path="res://scenes/ui/GameUI.gd" id="14_afkfj"]
-[ext_resource type="Texture2D" uid="uid://ca86ifr8jbcje" path="res://arts/2D Pixel Dungeon Asset Pack/GUI.png" id="14_gklbd"]
+[ext_resource type="Texture2D" uid="uid://ca86ifr8jbcje" path="res://arts/2D Pixel Dungeon Asset Pack/gui/GUI.png" id="14_gklbd"]
 [ext_resource type="Script" path="res://scenes/ui/Bag.gd" id="16_6w6wa"]
-[ext_resource type="Theme" uid="uid://b0yoe5i10sd6k" path="res://theme/InformationTheme.tres" id="17_0qjxl"]
 [ext_resource type="Theme" uid="uid://djj7a7lkt57ug" path="res://theme/BagTheme.tres" id="17_tkly7"]
 [ext_resource type="Script" path="res://scenes/ui/tips.gd" id="17_yt57p"]
-[ext_resource type="Script" path="res://scenes/ui/Description.gd" id="18_7u3kc"]
 [ext_resource type="PackedScene" uid="uid://cwlcwjosxosd3" path="res://scenes/ui/equipment_slot.tscn" id="18_jknoo"]
 [ext_resource type="Texture2D" uid="uid://c0yvhhrxutes" path="res://arts/2D Pixel Dungeon Asset Pack/Character_animation/priests_idle/priest2/v1/priest2_v1_1.png" id="18_o1qci"]
-[ext_resource type="Texture2D" uid="uid://caro8ncgbteot" path="res://arts/2D Pixel Dungeon Asset Pack/items and trap_animation/coin/coin_1.png" id="19_8770f"]
 [ext_resource type="FontFile" uid="uid://b7kulnvfh14d7" path="res://arts/pixel_rpg.ttf" id="19_myjx0"]
 [ext_resource type="Texture2D" uid="uid://cnmotj8qwseon" path="res://arts/2D Pixel Dungeon Asset Pack/Character_animation/priests_idle/priest2/v1/priest2_v1_2.png" id="19_rxelm"]
 [ext_resource type="Texture2D" uid="uid://dt1xcc3luemol" path="res://arts/2D Pixel Dungeon Asset Pack/Character_animation/priests_idle/priest2/v1/priest2_v1_3.png" id="20_cht2v"]
@@ -30,6 +27,7 @@
 [ext_resource type="Theme" uid="uid://tuqcinp2ysp1" path="res://theme/SlotTheme.tres" id="22_610n6"]
 [ext_resource type="Script" path="res://scenes/ui/OpManager.gd" id="23_3k5ty"]
 [ext_resource type="PackedScene" uid="uid://bti26imhoc0qy" path="res://scenes/ui/bag_slot.tscn" id="23_wao6u"]
+[ext_resource type="PackedScene" uid="uid://d1d6qxgdf77mh" path="res://scenes/ui/description.tscn" id="27_oakwg"]
 [ext_resource type="Script" path="res://scenes/ui/UITips.gd" id="31_vfdv7"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_qaai8"]
@@ -131,12 +129,6 @@ frame_2/texture = ExtResource("20_cht2v")
 frame_2/duration = 0.2
 frame_3/texture = ExtResource("21_8fjf2")
 frame_3/duration = 0.2
-
-[sub_resource type="LabelSettings" id="LabelSettings_deobl"]
-font = ExtResource("19_myjx0")
-
-[sub_resource type="LabelSettings" id="LabelSettings_1f7c8"]
-font = ExtResource("19_myjx0")
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xbbgb"]
 bg_color = Color(0.176471, 0.176471, 0.176471, 0.498039)
@@ -448,16 +440,12 @@ grow_vertical = 2
 script = ExtResource("16_6w6wa")
 
 [node name="PanelContainer" type="PanelContainer" parent="Bag"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -272.0
-offset_top = -182.0
-offset_right = 261.0
-offset_bottom = 183.0
+custom_minimum_size = Vector2(469, 0)
+layout_mode = 2
+offset_left = 307.0
+offset_top = 141.0
+offset_right = 851.0
+offset_bottom = 507.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
@@ -672,6 +660,14 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
+[node name="Description" parent="Bag" instance=ExtResource("27_oakwg")]
+custom_minimum_size = Vector2(180, 0)
+layout_mode = 2
+offset_left = 851.0
+offset_top = 141.0
+offset_right = 1031.0
+offset_bottom = 507.0
+
 [node name="tips" type="PanelContainer" parent="Bag"]
 z_index = 1
 layout_mode = 0
@@ -706,73 +702,12 @@ theme_override_fonts/font = ExtResource("19_myjx0")
 theme_override_font_sizes/font_size = 10
 text = "CANCEL"
 
-[node name="Description" type="PanelContainer" parent="Bag"]
-layout_mode = 2
-offset_left = 837.0
-offset_top = 142.0
-offset_right = 1051.0
-offset_bottom = 504.0
-size_flags_vertical = 3
-mouse_filter = 2
-theme = ExtResource("17_0qjxl")
-script = ExtResource("18_7u3kc")
-
-[node name="MarginContainer" type="MarginContainer" parent="Bag/Description"]
-layout_mode = 2
-
-[node name="VBoxContainer" type="VBoxContainer" parent="Bag/Description/MarginContainer"]
-layout_mode = 2
-
-[node name="Name" type="Label" parent="Bag/Description/MarginContainer/VBoxContainer"]
-layout_mode = 2
-text = "NAME"
-label_settings = SubResource("LabelSettings_deobl")
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="DescriptionText" type="RichTextLabel" parent="Bag/Description/MarginContainer/VBoxContainer"]
-layout_mode = 2
-size_flags_vertical = 3
-theme = ExtResource("1_tuj5x")
-
-[node name="HBoxContainer" type="HBoxContainer" parent="Bag/Description/MarginContainer/VBoxContainer"]
-custom_minimum_size = Vector2(0, 38)
-layout_mode = 2
-
-[node name="Coin" type="TextureRect" parent="Bag/Description/MarginContainer/VBoxContainer/HBoxContainer"]
-custom_minimum_size = Vector2(40, 40)
-layout_mode = 2
-texture = ExtResource("19_8770f")
-
-[node name="CoinLabel" type="Label" parent="Bag/Description/MarginContainer/VBoxContainer/HBoxContainer"]
-custom_minimum_size = Vector2(54, 0)
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 1
-label_settings = SubResource("LabelSettings_1f7c8")
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Coin2" type="TextureRect" parent="Bag/Description/MarginContainer/VBoxContainer/HBoxContainer"]
-custom_minimum_size = Vector2(40, 40)
-layout_mode = 2
-texture = ExtResource("19_8770f")
-
-[node name="CoinLabel2" type="Label" parent="Bag/Description/MarginContainer/VBoxContainer/HBoxContainer"]
-custom_minimum_size = Vector2(54, 0)
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 1
-label_settings = SubResource("LabelSettings_1f7c8")
-horizontal_alignment = 1
-vertical_alignment = 1
-
 [node name="Exit" type="TextureRect" parent="Bag"]
 layout_mode = 2
-offset_left = 799.0
-offset_top = 154.0
-offset_right = 826.0
-offset_bottom = 179.0
+offset_left = 811.0
+offset_top = 155.0
+offset_right = 838.0
+offset_bottom = 180.0
 texture = ExtResource("12_g5u8n")
 
 [node name="Description_CD" type="Timer" parent="Bag"]
@@ -859,6 +794,9 @@ offset_top = 235.0
 offset_right = 716.0
 offset_bottom = 252.0
 icon = ExtResource("12_g5u8n")
+
+[node name="Description" parent="." instance=ExtResource("27_oakwg")]
+visible = false
 
 [connection signal="pressed" from="StartMenu/VBoxContainer/StartButton" to="StartMenu" method="_on_start_button_pressed"]
 [connection signal="pressed" from="StartMenu/VBoxContainer/SettingsButton" to="StartMenu" method="_on_settings_button_pressed"]

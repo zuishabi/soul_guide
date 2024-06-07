@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://qn6uouqxfhmj"]
+
+[ext_resource type="Script" path="res://scenes/ui/EquipmentInfoBox.gd" id="1_o15tk"]
+[ext_resource type="Texture2D" uid="uid://ber557ylsg6s" path="res://arts/2D Pixel Dungeon Asset Pack/gui/fire.png" id="2_c35r3"]
+
+[node name="EquipmentInfoBox" type="MarginContainer"]
+script = ExtResource("1_o15tk")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="Texture" type="TextureRect" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("2_c35r3")
+stretch_mode = 3
+
+[node name="Label" type="Label" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3

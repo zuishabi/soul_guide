@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="Equipment" load_steps=3 format=3 uid="uid://drfio3ckw3v4a"]
+
+[ext_resource type="Script" path="res://resouces/item_scripts/equipment.gd" id="1_nnl7i"]
+[ext_resource type="Texture2D" uid="uid://bsxwusp8wol1k" path="res://arts/2D Pixel Dungeon Asset Pack/gui/chestarmorr.png" id="1_wcbk6"]
+
+[resource]
+script = ExtResource("1_nnl7i")
+equipment_kind = 1
+attack = 0
+armour = 0
+fire_attack = 0
+water_attack = 0
+defense = 10
+craft = 0
+item_texture = ExtResource("1_wcbk6")
+can_fold = false
+name = "ChestArmor"
+description = "CHESTARMOR"
+item_type = "Equipment"
+value = 600

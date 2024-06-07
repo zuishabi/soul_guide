@@ -3,22 +3,15 @@ extends Node
 var inventory:Array[Item]
 var equipments_inventory:Array[Item]
 var max_size=16
-var equipments_kind:Dictionary={
-	0:"HELMET",
-	1:"CHESTARMOR",
-	2:"LEGGUARD",
-	3:"BOOTS",
-	4:"MAINHAND",
-	5:"OFFHAND"
-}
+
+enum equipments_kind{HELMET,CHESTARMOR,LEGGUARD,BOOTS,MAINHAND,OFFHAND}
 
 signal on_bag_changed#当背包发生改变时发出，会使背包进行刷新
 
 func _ready():
 	equipments_inventory.resize(6)
 
-func add_item(item_name:String,count:int):
-	var item:Item=GlobalItemList.item_dictionary[item_name]
+func add_item(item:Item,count:int):
 	if(item.can_fold):
 		for i in inventory:
 			if i.name==item.name:
@@ -35,8 +28,7 @@ func add_item(item_name:String,count:int):
 				inventory.append(item)
 	on_bag_changed.emit()
 
-func delete_item(item_name:String,count:int)->bool:
-	var item:Item=GlobalItemList.item_dictionary[item_name]
+func delete_item(item:Item,count:int)->bool:
 	if(item.can_fold):
 		var i_item=find_item(item)
 		if(i_item):
@@ -66,3 +58,19 @@ func find_item(item:Item)->Item:
 		if(i.name==item.name):
 			return i
 	return null
+
+func equip(where:int):
+	var e_where:int=equipments_kind.values().find(inventory[where].equipment_kind)
+	if(equipments_inventory[e_where]!=null):
+		var temp:Item=inventory[where]
+		inventory[where]=equipments_inventory[e_where]
+		equipments_inventory[e_where]=temp
+	else:
+		equipments_inventory[e_where]=inventory[where]
+		inventory.remove_at(where)
+	on_bag_changed.emit()
+
+func unfix(e_where:int):
+	add_item(equipments_inventory[e_where],1)
+	equipments_inventory[e_where]=null
+	on_bag_changed.emit()

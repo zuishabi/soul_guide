@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://ca86ifr8jbcje"
-path="res://.godot/imported/GUI.png-0ae480fafab3e64e671baafacc5e8950.ctex"
+path="res://.godot/imported/GUI.png-82ad59a5b1e0ff9022c249d853a8da4d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://arts/2D Pixel Dungeon Asset Pack/GUI.png"
-dest_files=["res://.godot/imported/GUI.png-0ae480fafab3e64e671baafacc5e8950.ctex"]
+source_file="res://arts/2D Pixel Dungeon Asset Pack/gui/GUI.png"
+dest_files=["res://.godot/imported/GUI.png-82ad59a5b1e0ff9022c249d853a8da4d.ctex"]
 
 [params]
 

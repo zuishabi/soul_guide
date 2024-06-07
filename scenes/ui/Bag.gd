@@ -66,7 +66,7 @@ func _on_texture_rect_gui_input(event:InputEvent):
 #-----------------------------------物品描述--------------------------------------
 func show_description(where:int,kind:String):
 	if(!selected):
-		description.update_description(where,kind)
+		description.update_description_bag(where,kind)
 		description_visible=true
 		description.show()
 
@@ -83,7 +83,7 @@ func _on_description_cd_timeout():
 func show_tips(where:int,kind:String):
 	tips.update_tips(where,kind)
 	tips.global_position=get_global_mouse_position()
-	description.update_description(where,kind)
+	description.update_description_bag(where,kind)
 	tips.show()
 	selected=true
 	description.show()
@@ -97,4 +97,3 @@ func hide_tips():
 	tips.hide()
 	selected=false
 	description.hide()
-

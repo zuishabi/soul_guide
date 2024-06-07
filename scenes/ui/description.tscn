@@ -1,0 +1,100 @@
+[gd_scene load_steps=14 format=3 uid="uid://d1d6qxgdf77mh"]
+
+[ext_resource type="Theme" uid="uid://b0yoe5i10sd6k" path="res://theme/InformationTheme.tres" id="1_nf0uk"]
+[ext_resource type="Script" path="res://scenes/ui/Description.gd" id="2_ihh0y"]
+[ext_resource type="FontFile" uid="uid://b7kulnvfh14d7" path="res://arts/pixel_rpg.ttf" id="3_l37ks"]
+[ext_resource type="Theme" uid="uid://c2t31618alhb4" path="res://theme/MainTheme.tres" id="4_uyjry"]
+[ext_resource type="Texture2D" uid="uid://ber557ylsg6s" path="res://arts/2D Pixel Dungeon Asset Pack/gui/fire.png" id="5_mrdj0"]
+[ext_resource type="Script" path="res://scenes/ui/EquipmentInfo.gd" id="5_skre2"]
+[ext_resource type="Texture2D" uid="uid://caro8ncgbteot" path="res://arts/2D Pixel Dungeon Asset Pack/items and trap_animation/coin/coin_1.png" id="5_vrrhf"]
+[ext_resource type="Script" path="res://scenes/ui/AttributeInfo.gd" id="6_32ip8"]
+[ext_resource type="Texture2D" uid="uid://bbc4djsrxnpyi" path="res://arts/2D Pixel Dungeon Asset Pack/gui/water.png" id="6_lbjem"]
+[ext_resource type="Script" path="res://scenes/ui/BasicInfo.gd" id="6_t7pfy"]
+[ext_resource type="PackedScene" uid="uid://qn6uouqxfhmj" path="res://scenes/ui/EquipmentInfoBox.tscn" id="7_gbsss"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_deobl"]
+font = ExtResource("3_l37ks")
+
+[sub_resource type="LabelSettings" id="LabelSettings_1f7c8"]
+font = ExtResource("3_l37ks")
+
+[node name="Description" type="PanelContainer"]
+offset_left = 837.0
+offset_top = 142.0
+offset_right = 1051.0
+offset_bottom = 504.0
+size_flags_vertical = 3
+mouse_filter = 2
+theme = ExtResource("1_nf0uk")
+script = ExtResource("2_ihh0y")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="Name" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "NAME"
+label_settings = SubResource("LabelSettings_deobl")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="DescriptionText" type="RichTextLabel" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("4_uyjry")
+
+[node name="EquipmentInfo" type="VBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+script = ExtResource("5_skre2")
+
+[node name="BasicInfo" type="HBoxContainer" parent="MarginContainer/VBoxContainer/EquipmentInfo"]
+layout_mode = 2
+alignment = 1
+script = ExtResource("6_t7pfy")
+
+[node name="Attack" parent="MarginContainer/VBoxContainer/EquipmentInfo/BasicInfo" instance=ExtResource("7_gbsss")]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Defense" parent="MarginContainer/VBoxContainer/EquipmentInfo/BasicInfo" instance=ExtResource("7_gbsss")]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Armour" parent="MarginContainer/VBoxContainer/EquipmentInfo/BasicInfo" instance=ExtResource("7_gbsss")]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="AttributeInfo" type="HBoxContainer" parent="MarginContainer/VBoxContainer/EquipmentInfo"]
+layout_mode = 2
+theme_override_constants/separation = 10
+alignment = 1
+script = ExtResource("6_32ip8")
+
+[node name="WaterAttack" parent="MarginContainer/VBoxContainer/EquipmentInfo/AttributeInfo" instance=ExtResource("7_gbsss")]
+layout_mode = 2
+icon = ExtResource("6_lbjem")
+
+[node name="FireAttack" parent="MarginContainer/VBoxContainer/EquipmentInfo/AttributeInfo" instance=ExtResource("7_gbsss")]
+layout_mode = 2
+icon = ExtResource("5_mrdj0")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 38)
+layout_mode = 2
+
+[node name="Coin" type="TextureRect" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+texture = ExtResource("5_vrrhf")
+
+[node name="CoinLabel" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(54, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+label_settings = SubResource("LabelSettings_1f7c8")
+horizontal_alignment = 1
+vertical_alignment = 1

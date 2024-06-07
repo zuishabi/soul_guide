@@ -1,6 +1,6 @@
 [gd_resource type="Theme" load_steps=4 format=3 uid="uid://tuqcinp2ysp1"]
 
-[ext_resource type="Texture2D" uid="uid://ca86ifr8jbcje" path="res://arts/2D Pixel Dungeon Asset Pack/GUI.png" id="1_p3rbf"]
+[ext_resource type="Texture2D" uid="uid://ca86ifr8jbcje" path="res://arts/2D Pixel Dungeon Asset Pack/gui/GUI.png" id="1_p3rbf"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_36utj"]
 atlas = ExtResource("1_p3rbf")
