@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dayx7mt3hshch"
-path="res://.godot/imported/Dungeon_Tileset_at.png-d0dee31c98d426282373a15174c0c96c.ctex"
+uid="uid://pft74fgvutu5"
+path="res://.godot/imported/player_information.png-c0b475cc725041950ba9e64def100142.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://arts/2D Pixel Dungeon Asset Pack/Dungeon_Tileset_at.png"
-dest_files=["res://.godot/imported/Dungeon_Tileset_at.png-d0dee31c98d426282373a15174c0c96c.ctex"]
+source_file="res://arts/2D Pixel Dungeon Asset Pack/gui/player_information.png"
+dest_files=["res://.godot/imported/player_information.png-c0b475cc725041950ba9e64def100142.ctex"]
 
 [params]
 

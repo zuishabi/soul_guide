@@ -1,5 +1,6 @@
-[gd_scene load_steps=47 format=3 uid="uid://cdbhchrfy0n08"]
+[gd_scene load_steps=64 format=3 uid="uid://cdbhchrfy0n08"]
 
+[ext_resource type="Script" path="res://scenes/ui/ui.gd" id="1_24yio"]
 [ext_resource type="Script" path="res://scenes/ui/StartMenu.gd" id="1_op5d7"]
 [ext_resource type="Theme" uid="uid://c2t31618alhb4" path="res://theme/MainTheme.tres" id="1_tuj5x"]
 [ext_resource type="Texture2D" uid="uid://d22w2cwaqd5sc" path="res://arts/2D Pixel Dungeon Asset Pack/items and trap_animation/chest/chest_1.png" id="3_dm5jb"]
@@ -28,7 +29,17 @@
 [ext_resource type="Script" path="res://scenes/ui/OpManager.gd" id="23_3k5ty"]
 [ext_resource type="PackedScene" uid="uid://bti26imhoc0qy" path="res://scenes/ui/bag_slot.tscn" id="23_wao6u"]
 [ext_resource type="PackedScene" uid="uid://d1d6qxgdf77mh" path="res://scenes/ui/description.tscn" id="27_oakwg"]
+[ext_resource type="Texture2D" uid="uid://cafmccn6lh2uf" path="res://icon.svg" id="29_gsv4c"]
+[ext_resource type="Script" path="res://scenes/ui/PlayerInforamtionBoxContainer.gd" id="31_317ed"]
+[ext_resource type="PackedScene" uid="uid://qn6uouqxfhmj" path="res://scenes/ui/EquipmentInfoBox.tscn" id="31_oypjb"]
+[ext_resource type="Script" path="res://scenes/ui/PlayerInformation.gd" id="31_q2bqn"]
 [ext_resource type="Script" path="res://scenes/ui/UITips.gd" id="31_vfdv7"]
+[ext_resource type="Texture2D" uid="uid://dmcsn7bbb7j8p" path="res://arts/2D Pixel Dungeon Asset Pack/gui/can_fightt.png" id="32_n37qj"]
+[ext_resource type="Script" path="res://scenes/ui/Task.gd" id="32_s0sa8"]
+[ext_resource type="Texture2D" uid="uid://pft74fgvutu5" path="res://arts/2D Pixel Dungeon Asset Pack/gui/player_information.png" id="32_u7khh"]
+[ext_resource type="Texture2D" uid="uid://brd68g6ouo22y" path="res://arts/2D Pixel Dungeon Asset Pack/gui/heart.png" id="33_gm0gp"]
+[ext_resource type="Texture2D" uid="uid://grjse3weycio" path="res://arts/2D Pixel Dungeon Asset Pack/gui/magict.png" id="34_ij3c8"]
+[ext_resource type="Texture2D" uid="uid://c7fesjth1wsr5" path="res://arts/2D Pixel Dungeon Asset Pack/gui/defense.png" id="35_3aqhv"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_qaai8"]
 font_size = 60
@@ -130,6 +141,23 @@ frame_2/duration = 0.2
 frame_3/texture = ExtResource("21_8fjf2")
 frame_3/duration = 0.2
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_n1dno"]
+atlas = ExtResource("14_gklbd")
+region = Rect2(81, 97, 30, 30)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_11127"]
+texture = SubResource("AtlasTexture_n1dno")
+texture_margin_left = 6.0
+texture_margin_top = 6.0
+texture_margin_right = 6.0
+texture_margin_bottom = 6.0
+
+[sub_resource type="Theme" id="Theme_odspt"]
+PanelContainer/styles/panel = SubResource("StyleBoxTexture_11127")
+
+[sub_resource type="LabelSettings" id="LabelSettings_oemin"]
+font = ExtResource("19_myjx0")
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xbbgb"]
 bg_color = Color(0.176471, 0.176471, 0.176471, 0.498039)
 
@@ -140,8 +168,18 @@ bg_color = Color(0.176471, 0.176471, 0.176471, 0.635294)
 RichTextLabel/styles/focus = SubResource("StyleBoxFlat_xbbgb")
 RichTextLabel/styles/normal = SubResource("StyleBoxFlat_bu07c")
 
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_hb7v0"]
+texture = ExtResource("32_u7khh")
+texture_margin_left = 2.0
+texture_margin_right = 2.0
+texture_margin_bottom = 4.0
+
+[sub_resource type="Theme" id="Theme_2r6is"]
+PanelContainer/styles/panel = SubResource("StyleBoxTexture_hb7v0")
+
 [node name="UI" type="CanvasLayer"]
 process_mode = 3
+script = ExtResource("1_24yio")
 
 [node name="StartMenu" type="Control" parent="."]
 layout_mode = 3
@@ -669,6 +707,7 @@ offset_right = 1031.0
 offset_bottom = 507.0
 
 [node name="tips" type="PanelContainer" parent="Bag"]
+visible = false
 z_index = 1
 layout_mode = 0
 offset_left = 552.0
@@ -712,6 +751,110 @@ texture = ExtResource("12_g5u8n")
 
 [node name="Description_CD" type="Timer" parent="Bag"]
 wait_time = 0.1
+
+[node name="PlayerInformation" type="Sprite2D" parent="Bag"]
+clip_children = 1
+position = Vector2(690, 345.5)
+scale = Vector2(3.10417, 3.11458)
+texture = ExtResource("29_gsv4c")
+region_enabled = true
+region_rect = Rect2(16, 16, 96, 96)
+script = ExtResource("31_q2bqn")
+
+[node name="InformationPanel" type="PanelContainer" parent="Bag/PlayerInformation"]
+offset_left = -48.0
+offset_top = -48.0
+offset_right = 144.0
+offset_bottom = 144.0
+scale = Vector2(0.5, 0.5)
+theme = SubResource("Theme_odspt")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Bag/PlayerInformation/InformationPanel"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="Label" type="Label" parent="Bag/PlayerInformation/InformationPanel/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 2
+text = "PLAYERSTATE"
+label_settings = SubResource("LabelSettings_oemin")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PlayerInformationBoxContainer" type="HBoxContainer" parent="Bag/PlayerInformation/InformationPanel/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+script = ExtResource("31_317ed")
+
+[node name="MaxHealth" parent="Bag/PlayerInformation/InformationPanel/VBoxContainer/PlayerInformationBoxContainer" instance=ExtResource("31_oypjb")]
+layout_mode = 2
+size_flags_horizontal = 3
+icon = ExtResource("33_gm0gp")
+
+[node name="MaxMagic" parent="Bag/PlayerInformation/InformationPanel/VBoxContainer/PlayerInformationBoxContainer" instance=ExtResource("31_oypjb")]
+layout_mode = 2
+size_flags_horizontal = 3
+icon = ExtResource("34_ij3c8")
+
+[node name="PlayerInformationBoxContainer2" type="HBoxContainer" parent="Bag/PlayerInformation/InformationPanel/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+script = ExtResource("31_317ed")
+
+[node name="Defense" parent="Bag/PlayerInformation/InformationPanel/VBoxContainer/PlayerInformationBoxContainer2" instance=ExtResource("31_oypjb")]
+layout_mode = 2
+size_flags_horizontal = 3
+icon = ExtResource("35_3aqhv")
+
+[node name="Attack" parent="Bag/PlayerInformation/InformationPanel/VBoxContainer/PlayerInformationBoxContainer2" instance=ExtResource("31_oypjb")]
+layout_mode = 2
+size_flags_horizontal = 3
+icon = ExtResource("32_n37qj")
+
+[node name="PlayerInformationBoxContainer3" type="HBoxContainer" parent="Bag/PlayerInformation/InformationPanel/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+script = ExtResource("31_317ed")
+
+[node name="EquipmentInfoBox" parent="Bag/PlayerInformation/InformationPanel/VBoxContainer/PlayerInformationBoxContainer3" instance=ExtResource("31_oypjb")]
+layout_mode = 2
+size_flags_horizontal = 3
+icon = ExtResource("32_n37qj")
+
+[node name="EquipmentInfoBox2" parent="Bag/PlayerInformation/InformationPanel/VBoxContainer/PlayerInformationBoxContainer3" instance=ExtResource("31_oypjb")]
+layout_mode = 2
+size_flags_horizontal = 3
+icon = ExtResource("32_n37qj")
+
+[node name="PlayerInformationBoxContainer4" type="HBoxContainer" parent="Bag/PlayerInformation/InformationPanel/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+script = ExtResource("31_317ed")
+
+[node name="EquipmentInfoBox" parent="Bag/PlayerInformation/InformationPanel/VBoxContainer/PlayerInformationBoxContainer4" instance=ExtResource("31_oypjb")]
+layout_mode = 2
+size_flags_horizontal = 3
+icon = ExtResource("32_n37qj")
+
+[node name="EquipmentInfoBox2" parent="Bag/PlayerInformation/InformationPanel/VBoxContainer/PlayerInformationBoxContainer4" instance=ExtResource("31_oypjb")]
+layout_mode = 2
+size_flags_horizontal = 3
+icon = ExtResource("32_n37qj")
+
+[node name="PlayerInformationBoxContainer5" type="HBoxContainer" parent="Bag/PlayerInformation/InformationPanel/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+script = ExtResource("31_317ed")
+
+[node name="EquipmentInfoBox" parent="Bag/PlayerInformation/InformationPanel/VBoxContainer/PlayerInformationBoxContainer5" instance=ExtResource("31_oypjb")]
+layout_mode = 2
+size_flags_horizontal = 3
+icon = ExtResource("32_n37qj")
+
+[node name="EquipmentInfoBox2" parent="Bag/PlayerInformation/InformationPanel/VBoxContainer/PlayerInformationBoxContainer5" instance=ExtResource("31_oypjb")]
+layout_mode = 2
+size_flags_horizontal = 3
+icon = ExtResource("32_n37qj")
 
 [node name="OpManager" type="Control" parent="."]
 visible = false
@@ -796,7 +939,32 @@ offset_bottom = 252.0
 icon = ExtResource("12_g5u8n")
 
 [node name="Description" parent="." instance=ExtResource("27_oakwg")]
+
+[node name="Task" type="Control" parent="."]
 visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("32_s0sa8")
+
+[node name="PanelContainer" type="PanelContainer" parent="Task"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -321.0
+offset_top = -324.0
+offset_right = 261.0
+offset_bottom = 144.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_2r6is")
 
 [connection signal="pressed" from="StartMenu/VBoxContainer/StartButton" to="StartMenu" method="_on_start_button_pressed"]
 [connection signal="pressed" from="StartMenu/VBoxContainer/SettingsButton" to="StartMenu" method="_on_settings_button_pressed"]
@@ -809,6 +977,8 @@ visible = false
 [connection signal="pressed" from="InsideMenu/VBoxContainer/SettingsButton" to="InsideMenu" method="_on_settings_button_pressed"]
 [connection signal="pressed" from="InsideMenu/VBoxContainer/MainMenuButton" to="InsideMenu" method="_on_main_menu_button_pressed"]
 [connection signal="pressed" from="InsideMenu/VBoxContainer/ExitButton" to="InsideMenu" method="_on_exit_button_pressed"]
+[connection signal="gui_input" from="GameUI/TextureRect" to="GameUI" method="_on_texture_rect_gui_input"]
+[connection signal="gui_input" from="Bag/PanelContainer/VBoxContainer/HBoxContainer/PanelContainer/MarginContainer/VBoxContainer/Equipments/PlayerTeture/MarginContainer/TextureRect" to="Bag" method="_show_player_information"]
 [connection signal="pressed" from="Bag/tips/VBoxContainer/using" to="Bag/tips" method="_on_using_pressed"]
 [connection signal="pressed" from="Bag/tips/VBoxContainer/cancel" to="Bag/tips" method="_on_cancel_pressed"]
 [connection signal="gui_input" from="Bag/Exit" to="Bag" method="_on_texture_rect_gui_input"]

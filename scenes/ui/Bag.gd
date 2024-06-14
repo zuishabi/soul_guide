@@ -4,6 +4,7 @@ extends Control
 @onready var description = $Description
 @onready var description_cd = $Description_CD
 @onready var tips = $tips
+@onready var player_information = $PlayerInformation
 
 var selected:bool=false#是否有格子被选中
 var description_visible
@@ -28,7 +29,6 @@ func _ready():
 
 #刷新所有的格子
 func slots_update():
-	hide_description()
 	hide_tips()
 	var size=0
 	for i in slots:
@@ -44,16 +44,22 @@ func slots_update():
 		size+=1
 
 func _input(event):
-	if event.is_action_pressed("bag")&&Global.is_in_dungeon&&!self.visible&&!get_tree().paused:
+	if(event.is_action_pressed("bag")):
+		show_bag()
+
+func show_bag():
+	if(Global.is_in_dungeon&&!self.visible&&!get_tree().paused):
 		Global.is_gaming=false
 		get_tree().paused=true
 		self.show()
 		slots_update()
-	elif event.is_action_pressed("bag")&&Global.is_in_dungeon&&self.visible&&get_tree().paused:
+		player_information.hide()
+	elif Global.is_in_dungeon&&self.visible&&get_tree().paused:
 		Global.is_gaming=true
 		get_tree().paused=false
 		self.hide()
 		slots_update()
+		player_information.hide()
 
 #退出按钮
 func _on_texture_rect_gui_input(event:InputEvent):
@@ -96,4 +102,13 @@ func hide_tips():
 	tips.current_slot=-1
 	tips.hide()
 	selected=false
-	description.hide()
+	hide_description()
+
+#----------------------------------人物属性界面-----------------------------------
+func _show_player_information(event:InputEvent):
+	if(event.is_action_pressed("mouse_left")):
+		show_player_information()
+
+func show_player_information():
+	slots_update()
+	player_information.update_information()

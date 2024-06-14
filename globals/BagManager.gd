@@ -3,6 +3,8 @@ extends Node
 var inventory:Array[Item]
 var equipments_inventory:Array[Item]
 var max_size=16
+var item_array_kind:Array[String]
+var item_array_value:Array[int]
 
 enum equipments_kind{HELMET,CHESTARMOR,LEGGUARD,BOOTS,MAINHAND,OFFHAND}
 
@@ -61,16 +63,42 @@ func find_item(item:Item)->Item:
 
 func equip(where:int):
 	var e_where:int=equipments_kind.values().find(inventory[where].equipment_kind)
+	get_item_property(inventory[where],"equip")
 	if(equipments_inventory[e_where]!=null):
 		var temp:Item=inventory[where]
-		inventory[where]=equipments_inventory[e_where]
+		inventory.remove_at(where)
+		unfix(e_where)
 		equipments_inventory[e_where]=temp
 	else:
 		equipments_inventory[e_where]=inventory[where]
 		inventory.remove_at(where)
 	on_bag_changed.emit()
+	PlayerStats.on_player_properties_changed.emit(item_array_kind,item_array_value)
+	item_array_kind.clear()
+	item_array_value.clear()
 
 func unfix(e_where:int):
 	add_item(equipments_inventory[e_where],1)
+	get_item_property(equipments_inventory[e_where],"unfix")
 	equipments_inventory[e_where]=null
 	on_bag_changed.emit()
+	PlayerStats.on_player_properties_changed.emit(item_array_kind,item_array_value)
+	item_array_kind.clear()
+	item_array_value.clear()
+
+func get_item_property(item:Equipment,kind:String):
+	if item.equipment_kind==equipments_kind.MAINHAND||item.equipment_kind==equipments_kind.OFFHAND:
+		if item.attack!=0:
+			update_array("attack",item.attack,kind)
+		if item.armour!=0:
+			update_array("armour",item.armour,kind)
+	else:
+		if(item.defense!=0):
+			update_array("defense",item.defense,kind)
+
+func update_array(kind:String,value:int,_kind:String):
+	item_array_kind.append(kind)
+	if(_kind=="equip"):
+		item_array_value.append(value)
+	else:
+		item_array_value.append(-value)

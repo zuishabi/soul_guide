@@ -19,6 +19,7 @@ font = ExtResource("3_l37ks")
 font = ExtResource("3_l37ks")
 
 [node name="Description" type="PanelContainer"]
+visible = false
 offset_left = 837.0
 offset_top = 142.0
 offset_right = 1051.0

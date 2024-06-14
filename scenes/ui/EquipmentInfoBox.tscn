@@ -4,6 +4,8 @@
 [ext_resource type="Texture2D" uid="uid://ber557ylsg6s" path="res://arts/2D Pixel Dungeon Asset Pack/gui/fire.png" id="2_c35r3"]
 
 [node name="EquipmentInfoBox" type="MarginContainer"]
+offset_right = 21.0
+offset_bottom = 23.0
 script = ExtResource("1_o15tk")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]

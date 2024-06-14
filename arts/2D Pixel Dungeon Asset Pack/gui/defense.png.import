@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dq3qtnau6gww7"
-path="res://.godot/imported/Dungeon_Character_at.png-738002d6e044431e34f155eb8d9b3fa1.ctex"
+uid="uid://c7fesjth1wsr5"
+path="res://.godot/imported/defense.png-8985df97b1a318019c511dd779f38c71.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://arts/2D Pixel Dungeon Asset Pack/Dungeon_Character_at.png"
-dest_files=["res://.godot/imported/Dungeon_Character_at.png-738002d6e044431e34f155eb8d9b3fa1.ctex"]
+source_file="res://arts/2D Pixel Dungeon Asset Pack/gui/defense.png"
+dest_files=["res://.godot/imported/defense.png-8985df97b1a318019c511dd779f38c71.ctex"]
 
 [params]
 

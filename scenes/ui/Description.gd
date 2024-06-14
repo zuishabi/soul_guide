@@ -7,16 +7,17 @@ extends PanelContainer
 
 func update_description_bag(where:int,kind:String):
 	if(kind=="BAG"):
-		update_description(where,BagManager.inventory[where])
+		update_description(Vector2(851,141),BagManager.inventory[where])
 	else:
-		update_description(where,BagManager.equipments_inventory[where])
+		update_description(Vector2(851,141),BagManager.equipments_inventory[where])
 
-func update_description(where:int,item:Item):
+func update_description(position:Vector2,item:Item):
+	self.position=position
 	description_text.clear()
 	description_text.append_text(item.description)
 	name_text.text=item.name
 	coin_label.text=str(item.value)
-	if(item.item_type=="Equipment"):
+	if(item.item_type=="Equipment"):#如果物品类型是装备，则调用装备显示函数,否则隐藏
 		equipment_info.show()
 		equipment_info.update_info(item)
 	else:
