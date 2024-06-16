@@ -1,4 +1,4 @@
-[gd_scene load_steps=64 format=3 uid="uid://cdbhchrfy0n08"]
+[gd_scene load_steps=66 format=3 uid="uid://cdbhchrfy0n08"]
 
 [ext_resource type="Script" path="res://scenes/ui/ui.gd" id="1_24yio"]
 [ext_resource type="Script" path="res://scenes/ui/StartMenu.gd" id="1_op5d7"]
@@ -40,6 +40,7 @@
 [ext_resource type="Texture2D" uid="uid://brd68g6ouo22y" path="res://arts/2D Pixel Dungeon Asset Pack/gui/heart.png" id="33_gm0gp"]
 [ext_resource type="Texture2D" uid="uid://grjse3weycio" path="res://arts/2D Pixel Dungeon Asset Pack/gui/magict.png" id="34_ij3c8"]
 [ext_resource type="Texture2D" uid="uid://c7fesjth1wsr5" path="res://arts/2D Pixel Dungeon Asset Pack/gui/defense.png" id="35_3aqhv"]
+[ext_resource type="Script" path="res://scenes/ui/AnimationPlayer.gd" id="41_yqlxy"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_qaai8"]
 font_size = 60
@@ -177,6 +178,38 @@ texture_margin_bottom = 4.0
 [sub_resource type="Theme" id="Theme_2r6is"]
 PanelContainer/styles/panel = SubResource("StyleBoxTexture_hb7v0")
 
+[sub_resource type="SpriteFrames" id="SpriteFrames_xx8y7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_dm5jb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_yu4j7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_mnxj5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_7ioik")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_dujsr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_6v47q")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_cnu2o")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_ysvgc")
+}],
+"loop": false,
+"name": &"chest_open",
+"speed": 5.0
+}]
+
 [node name="UI" type="CanvasLayer"]
 process_mode = 3
 script = ExtResource("1_24yio")
@@ -215,6 +248,8 @@ layout_mode = 2
 focus_mode = 0
 theme = ExtResource("1_tuj5x")
 text = "START"
+icon_alignment = 1
+expand_icon = true
 
 [node name="SettingsButton" type="Button" parent="StartMenu/VBoxContainer"]
 custom_minimum_size = Vector2(334, 88)
@@ -966,6 +1001,45 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = SubResource("Theme_2r6is")
 
+[node name="ChestOpen" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("41_yqlxy")
+
+[node name="InitialPos" type="Marker2D" parent="ChestOpen"]
+position = Vector2(576, 225)
+
+[node name="Marker2D" type="Marker2D" parent="ChestOpen"]
+position = Vector2(576, 420)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="ChestOpen"]
+position = Vector2(576, 252)
+scale = Vector2(15.5, 15.5)
+sprite_frames = SubResource("SpriteFrames_xx8y7")
+animation = &"chest_open"
+frame = 7
+frame_progress = 1.0
+
+[node name="ItemBox" type="Control" parent="ChestOpen"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Button" type="Button" parent="ChestOpen"]
+layout_mode = 0
+offset_left = 514.0
+offset_top = 510.0
+offset_right = 638.0
+offset_bottom = 559.0
+text = "CONFIRM"
+
 [connection signal="pressed" from="StartMenu/VBoxContainer/StartButton" to="StartMenu" method="_on_start_button_pressed"]
 [connection signal="pressed" from="StartMenu/VBoxContainer/SettingsButton" to="StartMenu" method="_on_settings_button_pressed"]
 [connection signal="pressed" from="StartMenu/VBoxContainer/ExitButton" to="StartMenu" method="_on_exit_button_pressed"]
@@ -985,3 +1059,4 @@ theme = SubResource("Theme_2r6is")
 [connection signal="timeout" from="Bag/Description_CD" to="Bag" method="_on_description_cd_timeout"]
 [connection signal="pressed" from="OpManager/VBoxContainer/HBoxContainer/Button" to="OpManager" method="_on_button_pressed"]
 [connection signal="pressed" from="Tips/Button" to="Tips" method="_on_button_pressed"]
+[connection signal="pressed" from="ChestOpen/Button" to="." method="_on_button_pressed"]

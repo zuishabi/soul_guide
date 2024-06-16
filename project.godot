@@ -22,9 +22,10 @@ PlayerStats="*res://globals/player_stats.gd"
 Transitionlayer="*res://globals/transitionlayer.tscn"
 PlayerEffectManager="*res://globals/PlayerEffectManager.gd"
 BagManager="*res://globals/BagManager.gd"
-GlobalItemList="*res://resouces/item_scripts/item_list.gd"
 Ui="*res://scenes/ui/ui.tscn"
 TipsEmitter="*res://globals/TipsEmitter.gd"
+LootsManager="*res://Loots/loots_manager.tscn"
+GlobalItemList="*res://globals/global_item_list.tscn"
 
 [display]
 

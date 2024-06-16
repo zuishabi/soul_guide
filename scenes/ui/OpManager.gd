@@ -40,3 +40,6 @@ func delete_item(item_name:String,count:String):
 func add_information(text:String):
 	rich_text_label.add_text(Time.get_time_string_from_system()+':'+text)
 	rich_text_label.newline()
+
+func get_loot(loot_name:String,loot_num:String):
+	LootsManager.get_loot(loot_name,int(loot_num))

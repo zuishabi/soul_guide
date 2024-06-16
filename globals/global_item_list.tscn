@@ -1,0 +1,20 @@
+[gd_scene load_steps=8 format=3 uid="uid://smqe3q73faoi"]
+
+[ext_resource type="Script" path="res://globals/item_list.gd" id="1_s7pio"]
+[ext_resource type="Resource" uid="uid://c6m6cn7g2upi8" path="res://resouces/item_resources/chest.tres" id="2_e2j46"]
+[ext_resource type="Resource" uid="uid://drfio3ckw3v4a" path="res://resouces/item_resources/chest_armor.tres" id="3_iiedl"]
+[ext_resource type="Resource" uid="uid://cod61iqmuemgk" path="res://resouces/item_resources/key.tres" id="4_y3ctr"]
+[ext_resource type="Resource" uid="uid://dj85ybjhmtda6" path="res://resouces/item_resources/health_potion.tres" id="5_g56bp"]
+[ext_resource type="Resource" uid="uid://4brj5306flwx" path="res://resouces/item_resources/sword.tres" id="6_prkmm"]
+[ext_resource type="Resource" uid="uid://dkdkb4m73jwpl" path="res://resouces/item_resources/helmet.tres" id="7_oetan"]
+
+[node name="GlobalItemList" type="Node"]
+script = ExtResource("1_s7pio")
+item_dictionary = {
+"chest": ExtResource("2_e2j46"),
+"chest_armor": ExtResource("3_iiedl"),
+"health_potion": ExtResource("5_g56bp"),
+"helmet": ExtResource("7_oetan"),
+"key": ExtResource("4_y3ctr"),
+"sword": ExtResource("6_prkmm")
+}

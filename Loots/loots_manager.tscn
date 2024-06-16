@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://cawtgvrpuvh75"]
+
+[ext_resource type="Script" path="res://Loots/LootsLists.gd" id="1_xdpsn"]
+[ext_resource type="Resource" uid="uid://b6nicsoxf4lai" path="res://Loots/LootsResources/chest.tres" id="2_thbyi"]
+
+[node name="LootsManager" type="Node"]
+script = ExtResource("1_xdpsn")
+loot_list = {
+"chest": ExtResource("2_thbyi")
+}

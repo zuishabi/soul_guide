@@ -16,6 +16,7 @@ var can_reach_texture=preload("res://arts/2D Pixel Dungeon Asset Pack/gui/can_re
 var can_fight_texture=preload("res://arts/2D Pixel Dungeon Asset Pack/gui/can_fightt.png")
 var can_get_texture=preload("res://arts/2D Pixel Dungeon Asset Pack/gui/can_get.png")
 
+signal target_arrive
 #-------------------------------------------对内-----------------------------------------------------
 func _ready():
 	mouse_target.show()

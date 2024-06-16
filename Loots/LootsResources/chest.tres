@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="LootsArray" load_steps=6 format=3 uid="uid://b6nicsoxf4lai"]
+
+[ext_resource type="Script" path="res://Loots/LootsResources/LootsArray.gd" id="1_ekivg"]
+[ext_resource type="Script" path="res://Loots/LootsResources/BaiscLoot.gd" id="1_q0iv5"]
+
+[sub_resource type="Resource" id="Resource_2akhr"]
+script = ExtResource("1_q0iv5")
+name = "helmet"
+weight = 5
+
+[sub_resource type="Resource" id="Resource_qnsk2"]
+script = ExtResource("1_q0iv5")
+name = "health_potion"
+weight = 90
+
+[sub_resource type="Resource" id="Resource_hfpxk"]
+script = ExtResource("1_q0iv5")
+name = "sword"
+weight = 5
+
+[resource]
+script = ExtResource("1_ekivg")
+loots = Array[ExtResource("1_q0iv5")]([SubResource("Resource_2akhr"), SubResource("Resource_qnsk2"), SubResource("Resource_hfpxk")])
