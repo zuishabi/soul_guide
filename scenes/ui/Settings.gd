@@ -5,9 +5,6 @@ extends Control
 func _ready():
 	option_button.selected=0
 
-func _process(_delta):
-	pass
-
 func _on_option_button_item_selected(index):
 	Global.language=index
 

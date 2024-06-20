@@ -5,7 +5,6 @@ signal magic_change(value)
 signal on_player_properties_changed
 signal on_player_stats_changed
 
-var player_pos:Vector2i
 var health:int:
 	set(value):
 		health=value

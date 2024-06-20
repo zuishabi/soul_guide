@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://c8vcq2muy7d5e"]
 
-[ext_resource type="Script" path="res://ItemContainer.gd" id="1_ekbma"]
+[ext_resource type="Script" path="res://scenes/ui/ItemContainer.gd" id="1_ekbma"]
 [ext_resource type="Texture2D" uid="uid://d22w2cwaqd5sc" path="res://arts/2D Pixel Dungeon Asset Pack/items and trap_animation/chest/chest_1.png" id="2_uymhm"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yrqdt"]

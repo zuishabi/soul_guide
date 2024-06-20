@@ -1,14 +1,12 @@
-[gd_scene load_steps=14 format=3 uid="uid://c200q7if46nkr"]
+[gd_scene load_steps=13 format=3 uid="uid://c200q7if46nkr"]
 
 [ext_resource type="Script" path="res://scenes/Base/base.gd" id="1_8goli"]
-[ext_resource type="Script" path="res://objects/MagicPotion.gd" id="2_08dnn"]
+[ext_resource type="Script" path="res://objects/TrapDoor.gd" id="2_4mc7x"]
+[ext_resource type="Script" path="res://objects/chest.gd" id="2_a0l7s"]
 [ext_resource type="Texture2D" uid="uid://cbhun1bnv5xpi" path="res://arts/2D Pixel Dungeon Asset Pack/character and tileset/Dungeon_Tileset.png" id="2_kotr6"]
 [ext_resource type="PackedScene" uid="uid://cvmvkklb2dqu5" path="res://scenes/player/player.tscn" id="2_lf3te"]
-[ext_resource type="Script" path="res://objects/HealthPotion.gd" id="3_goc04"]
 [ext_resource type="Texture2D" uid="uid://dby1iikiulohg" path="res://arts/2D Pixel Dungeon Asset Pack/gui/can_reach.png" id="4_2cxf2"]
-[ext_resource type="Script" path="res://objects/SpikeTrap.gd" id="5_675eb"]
 [ext_resource type="Texture2D" uid="uid://co7slxb84i7k5" path="res://arts/2D Pixel Dungeon Asset Pack/character and tileset/demonstration.png" id="5_hwsi1"]
-[ext_resource type="PackedScene" uid="uid://b3ftelkvxw4mi" path="res://scenes/enemies/enemy.tscn" id="5_n3w1w"]
 [ext_resource type="Texture2D" uid="uid://fefp0svoqpee" path="res://arts/2D Pixel Dungeon Asset Pack/gui/target_place.png" id="5_r26lr"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_eitgs"]
@@ -101,8 +99,8 @@ texture = ExtResource("2_kotr6")
 7:3/0 = 0
 8:3/0 = 0
 8:3/0/custom_data_0 = true
+8:3/0/custom_data_1 = ExtResource("2_4mc7x")
 8:3/0/custom_data_2 = true
-8:3/0/custom_data_5 = true
 9:3/0 = 0
 0:4/0 = 0
 1:4/0 = 0
@@ -160,40 +158,36 @@ texture = ExtResource("2_kotr6")
 9:7/0/custom_data_3 = true
 0:8/0 = 0
 0:8/0/custom_data_0 = true
+0:8/0/custom_data_1 = ExtResource("2_a0l7s")
 0:8/0/custom_data_2 = true
-0:8/0/custom_data_5 = true
 1:8/0 = 0
 1:8/0/custom_data_0 = true
+1:8/0/custom_data_1 = ExtResource("2_a0l7s")
 1:8/0/custom_data_2 = true
-1:8/0/custom_data_5 = true
 2:8/0 = 0
 2:8/0/custom_data_0 = true
+2:8/0/custom_data_1 = ExtResource("2_a0l7s")
 2:8/0/custom_data_2 = true
-2:8/0/custom_data_5 = true
 3:8/0 = 0
 3:8/0/custom_data_0 = true
+3:8/0/custom_data_1 = ExtResource("2_a0l7s")
 3:8/0/custom_data_2 = true
-3:8/0/custom_data_5 = true
 4:8/0 = 0
 4:8/0/custom_data_0 = true
+4:8/0/custom_data_1 = ExtResource("2_a0l7s")
 4:8/0/custom_data_2 = true
-4:8/0/custom_data_5 = true
 5:8/0 = 0
 5:8/0/custom_data_0 = true
+5:8/0/custom_data_1 = ExtResource("2_a0l7s")
 5:8/0/custom_data_2 = true
-5:8/0/custom_data_5 = true
 6:8/0 = 0
 6:8/0/custom_data_0 = true
 6:8/0/custom_data_2 = true
 7:8/0 = 0
-7:8/0/custom_data_0 = true
 7:8/0/custom_data_2 = true
 8:8/0 = 0
-8:8/0/custom_data_0 = true
 8:8/0/custom_data_2 = true
 9:8/0 = 0
-9:8/0/custom_data_0 = true
-9:8/0/custom_data_1 = ExtResource("3_goc04")
 9:8/0/custom_data_2 = true
 0:9/0 = 0
 1:9/0 = 0
@@ -203,15 +197,20 @@ texture = ExtResource("2_kotr6")
 5:9/0 = 0
 6:9/0 = 0
 7:9/0 = 0
-7:9/0/custom_data_0 = true
-7:9/0/custom_data_1 = ExtResource("2_08dnn")
 7:9/0/custom_data_2 = true
 8:9/0 = 0
-8:9/0/custom_data_0 = true
 8:9/0/custom_data_2 = true
 9:9/0 = 0
-9:9/0/custom_data_0 = true
 9:9/0/custom_data_2 = true
+
+[sub_resource type="GDScript" id="GDScript_1oh08"]
+script/source = "extends Node
+
+var if_once:bool=true
+
+func excute():
+	PlayerEffectManager.take_damage(10)
+"
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_cwq04"]
 texture = ExtResource("5_hwsi1")
@@ -266,10 +265,8 @@ texture = ExtResource("5_hwsi1")
 3:8/0 = 0
 4:8/0 = 0
 5:8/0 = 0
-5:8/0/custom_data_0 = true
-5:8/0/custom_data_1 = ExtResource("5_675eb")
+5:8/0/custom_data_1 = SubResource("GDScript_1oh08")
 5:8/0/custom_data_2 = true
-5:8/0/custom_data_4 = true
 6:8/0 = 0
 7:8/0 = 0
 8:8/0 = 0
@@ -371,10 +368,8 @@ custom_data_layer_2/name = "can_reach"
 custom_data_layer_2/type = 1
 custom_data_layer_3/name = "is_enemy"
 custom_data_layer_3/type = 1
-custom_data_layer_4/name = "useable"
+custom_data_layer_4/name = "usable"
 custom_data_layer_4/type = 1
-custom_data_layer_5/name = "can_handle"
-custom_data_layer_5/type = 1
 sources/0 = SubResource("TileSetAtlasSource_eitgs")
 sources/1 = SubResource("TileSetAtlasSource_cwq04")
 
@@ -404,9 +399,6 @@ width = 2.0
 default_color = Color(1, 1, 0.305882, 1)
 
 [node name="EnemiesHandler" type="Node2D" parent="."]
-
-[node name="Enemy" parent="EnemiesHandler" instance=ExtResource("5_n3w1w")]
-position = Vector2(41, 56)
 
 [node name="player" parent="." instance=ExtResource("2_lf3te")]
 position = Vector2(24, 24)

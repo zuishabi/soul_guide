@@ -1,4 +1,4 @@
-[gd_scene load_steps=66 format=3 uid="uid://cdbhchrfy0n08"]
+[gd_scene load_steps=67 format=3 uid="uid://cdbhchrfy0n08"]
 
 [ext_resource type="Script" path="res://scenes/ui/ui.gd" id="1_24yio"]
 [ext_resource type="Script" path="res://scenes/ui/StartMenu.gd" id="1_op5d7"]
@@ -30,7 +30,6 @@
 [ext_resource type="PackedScene" uid="uid://bti26imhoc0qy" path="res://scenes/ui/bag_slot.tscn" id="23_wao6u"]
 [ext_resource type="PackedScene" uid="uid://d1d6qxgdf77mh" path="res://scenes/ui/description.tscn" id="27_oakwg"]
 [ext_resource type="Texture2D" uid="uid://cafmccn6lh2uf" path="res://icon.svg" id="29_gsv4c"]
-[ext_resource type="Script" path="res://scenes/ui/PlayerInforamtionBoxContainer.gd" id="31_317ed"]
 [ext_resource type="PackedScene" uid="uid://qn6uouqxfhmj" path="res://scenes/ui/EquipmentInfoBox.tscn" id="31_oypjb"]
 [ext_resource type="Script" path="res://scenes/ui/PlayerInformation.gd" id="31_q2bqn"]
 [ext_resource type="Script" path="res://scenes/ui/UITips.gd" id="31_vfdv7"]
@@ -40,7 +39,31 @@
 [ext_resource type="Texture2D" uid="uid://brd68g6ouo22y" path="res://arts/2D Pixel Dungeon Asset Pack/gui/heart.png" id="33_gm0gp"]
 [ext_resource type="Texture2D" uid="uid://grjse3weycio" path="res://arts/2D Pixel Dungeon Asset Pack/gui/magict.png" id="34_ij3c8"]
 [ext_resource type="Texture2D" uid="uid://c7fesjth1wsr5" path="res://arts/2D Pixel Dungeon Asset Pack/gui/defense.png" id="35_3aqhv"]
+[ext_resource type="Script" path="res://scenes/ui/FightUi.gd" id="41_jm7cj"]
 [ext_resource type="Script" path="res://scenes/ui/AnimationPlayer.gd" id="41_yqlxy"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_w2klq"]
+font_size = 40
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xnklj"]
+atlas = ExtResource("14_gklbd")
+region = Rect2(2, 260, 26, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_80222"]
+atlas = ExtResource("14_gklbd")
+region = Rect2(135, 20, 52, 7)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ndkwg"]
+atlas = ExtResource("14_gklbd")
+region = Rect2(72, 22, 49, 3)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mfo0p"]
+atlas = ExtResource("14_gklbd")
+region = Rect2(135, 4, 45, 7)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_77m27"]
+atlas = ExtResource("14_gklbd")
+region = Rect2(72, 6, 42, 3)
 
 [sub_resource type="LabelSettings" id="LabelSettings_qaai8"]
 font_size = 60
@@ -101,26 +124,6 @@ outline_size = 21
 outline_color = Color(0, 0, 0, 1)
 shadow_size = 30
 shadow_color = Color(0.675166, 0.536081, 0.220192, 1)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_xnklj"]
-atlas = ExtResource("14_gklbd")
-region = Rect2(2, 260, 26, 24)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_80222"]
-atlas = ExtResource("14_gklbd")
-region = Rect2(135, 20, 52, 7)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ndkwg"]
-atlas = ExtResource("14_gklbd")
-region = Rect2(72, 22, 49, 3)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_mfo0p"]
-atlas = ExtResource("14_gklbd")
-region = Rect2(135, 4, 45, 7)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_77m27"]
-atlas = ExtResource("14_gklbd")
-region = Rect2(72, 6, 42, 3)
 
 [sub_resource type="LabelSettings" id="LabelSettings_4jq6u"]
 font_size = 38
@@ -214,11 +217,92 @@ animations = [{
 process_mode = 3
 script = ExtResource("1_24yio")
 
+[node name="Label" type="Label" parent="."]
+offset_left = 908.0
+offset_right = 1090.0
+offset_bottom = 80.0
+text = "45"
+label_settings = SubResource("LabelSettings_w2klq")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="GameUI" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("14_afkfj")
+
+[node name="TextureRect" type="TextureRect" parent="GameUI"]
+layout_mode = 0
+offset_left = 44.0
+offset_top = 32.0
+offset_right = 134.0
+offset_bottom = 124.0
+texture = SubResource("AtlasTexture_xnklj")
+
+[node name="HPBar" type="TextureProgressBar" parent="GameUI"]
+layout_mode = 1
+offset_left = 134.0
+offset_top = 32.0
+offset_right = 186.0
+offset_bottom = 39.0
+scale = Vector2(4, 4)
+step = 0.0
+value = 100.0
+texture_under = SubResource("AtlasTexture_80222")
+texture_progress = SubResource("AtlasTexture_ndkwg")
+texture_progress_offset = Vector2(1, 2)
+
+[node name="HpLabel" type="Label" parent="GameUI"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 134.0
+offset_top = 34.0
+offset_right = -810.0
+offset_bottom = -588.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_tuj5x")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MPBar" type="TextureProgressBar" parent="GameUI"]
+layout_mode = 0
+offset_left = 134.0
+offset_top = 60.0
+offset_right = 179.0
+offset_bottom = 67.0
+scale = Vector2(4, 4)
+max_value = 50.0
+step = 0.0
+texture_under = SubResource("AtlasTexture_mfo0p")
+texture_progress = SubResource("AtlasTexture_77m27")
+texture_progress_offset = Vector2(1, 2)
+
+[node name="MpLabel" type="Label" parent="GameUI"]
+layout_mode = 0
+offset_left = 134.0
+offset_top = 60.0
+offset_right = 314.0
+offset_bottom = 88.0
+theme = ExtResource("1_tuj5x")
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="StartMenu" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 1.0
+offset_right = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_op5d7")
@@ -431,76 +515,6 @@ custom_minimum_size = Vector2(300, 80)
 layout_mode = 2
 theme = ExtResource("1_tuj5x")
 text = "EXIT"
-
-[node name="GameUI" type="Control" parent="."]
-visible = false
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-script = ExtResource("14_afkfj")
-
-[node name="TextureRect" type="TextureRect" parent="GameUI"]
-layout_mode = 0
-offset_left = 44.0
-offset_top = 32.0
-offset_right = 134.0
-offset_bottom = 124.0
-texture = SubResource("AtlasTexture_xnklj")
-
-[node name="HPBar" type="TextureProgressBar" parent="GameUI"]
-layout_mode = 1
-offset_left = 134.0
-offset_top = 32.0
-offset_right = 186.0
-offset_bottom = 39.0
-scale = Vector2(4, 4)
-step = 0.0
-value = 100.0
-texture_under = SubResource("AtlasTexture_80222")
-texture_progress = SubResource("AtlasTexture_ndkwg")
-texture_progress_offset = Vector2(1, 2)
-
-[node name="HpLabel" type="Label" parent="GameUI"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 134.0
-offset_top = 34.0
-offset_right = -810.0
-offset_bottom = -588.0
-grow_horizontal = 2
-grow_vertical = 2
-theme = ExtResource("1_tuj5x")
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="MPBar" type="TextureProgressBar" parent="GameUI"]
-layout_mode = 0
-offset_left = 134.0
-offset_top = 60.0
-offset_right = 179.0
-offset_bottom = 67.0
-scale = Vector2(4, 4)
-max_value = 50.0
-step = 0.0
-texture_under = SubResource("AtlasTexture_mfo0p")
-texture_progress = SubResource("AtlasTexture_77m27")
-texture_progress_offset = Vector2(1, 2)
-
-[node name="MpLabel" type="Label" parent="GameUI"]
-layout_mode = 0
-offset_left = 134.0
-offset_top = 60.0
-offset_right = 314.0
-offset_bottom = 88.0
-theme = ExtResource("1_tuj5x")
-horizontal_alignment = 1
-vertical_alignment = 1
 
 [node name="Bag" type="Control" parent="."]
 visible = false
@@ -819,7 +833,6 @@ vertical_alignment = 1
 [node name="PlayerInformationBoxContainer" type="HBoxContainer" parent="Bag/PlayerInformation/InformationPanel/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
-script = ExtResource("31_317ed")
 
 [node name="MaxHealth" parent="Bag/PlayerInformation/InformationPanel/VBoxContainer/PlayerInformationBoxContainer" instance=ExtResource("31_oypjb")]
 layout_mode = 2
@@ -834,7 +847,6 @@ icon = ExtResource("34_ij3c8")
 [node name="PlayerInformationBoxContainer2" type="HBoxContainer" parent="Bag/PlayerInformation/InformationPanel/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
-script = ExtResource("31_317ed")
 
 [node name="Defense" parent="Bag/PlayerInformation/InformationPanel/VBoxContainer/PlayerInformationBoxContainer2" instance=ExtResource("31_oypjb")]
 layout_mode = 2
@@ -849,7 +861,6 @@ icon = ExtResource("32_n37qj")
 [node name="PlayerInformationBoxContainer3" type="HBoxContainer" parent="Bag/PlayerInformation/InformationPanel/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
-script = ExtResource("31_317ed")
 
 [node name="EquipmentInfoBox" parent="Bag/PlayerInformation/InformationPanel/VBoxContainer/PlayerInformationBoxContainer3" instance=ExtResource("31_oypjb")]
 layout_mode = 2
@@ -864,7 +875,6 @@ icon = ExtResource("32_n37qj")
 [node name="PlayerInformationBoxContainer4" type="HBoxContainer" parent="Bag/PlayerInformation/InformationPanel/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
-script = ExtResource("31_317ed")
 
 [node name="EquipmentInfoBox" parent="Bag/PlayerInformation/InformationPanel/VBoxContainer/PlayerInformationBoxContainer4" instance=ExtResource("31_oypjb")]
 layout_mode = 2
@@ -879,7 +889,6 @@ icon = ExtResource("32_n37qj")
 [node name="PlayerInformationBoxContainer5" type="HBoxContainer" parent="Bag/PlayerInformation/InformationPanel/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
-script = ExtResource("31_317ed")
 
 [node name="EquipmentInfoBox" parent="Bag/PlayerInformation/InformationPanel/VBoxContainer/PlayerInformationBoxContainer5" instance=ExtResource("31_oypjb")]
 layout_mode = 2
@@ -922,6 +931,7 @@ layout_mode = 2
 custom_minimum_size = Vector2(191, 0)
 layout_mode = 2
 size_flags_horizontal = 3
+shortcut_keys_enabled = false
 
 [node name="Button" type="Button" parent="OpManager/VBoxContainer/HBoxContainer"]
 layout_mode = 2
@@ -935,6 +945,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_force_pass_scroll_events = false
 script = ExtResource("31_vfdv7")
 
 [node name="PanelContainer" type="PanelContainer" parent="Tips"]
@@ -950,10 +961,11 @@ offset_right = 152.0
 offset_bottom = 95.0
 grow_horizontal = 2
 grow_vertical = 2
-mouse_filter = 2
+mouse_force_pass_scroll_events = false
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Tips/PanelContainer"]
 layout_mode = 2
+mouse_filter = 0
 
 [node name="Label" type="Label" parent="Tips/PanelContainer/VBoxContainer"]
 layout_mode = 2
@@ -974,6 +986,7 @@ offset_bottom = 252.0
 icon = ExtResource("12_g5u8n")
 
 [node name="Description" parent="." instance=ExtResource("27_oakwg")]
+visible = false
 
 [node name="Task" type="Control" parent="."]
 visible = false
@@ -983,7 +996,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-mouse_filter = 2
 script = ExtResource("32_s0sa8")
 
 [node name="PanelContainer" type="PanelContainer" parent="Task"]
@@ -1002,6 +1014,7 @@ grow_vertical = 2
 theme = SubResource("Theme_2r6is")
 
 [node name="ChestOpen" type="Control" parent="."]
+visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -1040,6 +1053,32 @@ offset_right = 638.0
 offset_bottom = 559.0
 text = "CONFIRM"
 
+[node name="FightUi" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("41_jm7cj")
+
+[node name="MainUi" type="PanelContainer" parent="FightUi"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -250.0
+offset_top = -150.0
+offset_right = 250.0
+offset_bottom = 150.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(250, 150)
+
+[connection signal="gui_input" from="GameUI/TextureRect" to="GameUI" method="_on_texture_rect_gui_input"]
 [connection signal="pressed" from="StartMenu/VBoxContainer/StartButton" to="StartMenu" method="_on_start_button_pressed"]
 [connection signal="pressed" from="StartMenu/VBoxContainer/SettingsButton" to="StartMenu" method="_on_settings_button_pressed"]
 [connection signal="pressed" from="StartMenu/VBoxContainer/ExitButton" to="StartMenu" method="_on_exit_button_pressed"]
@@ -1051,7 +1090,6 @@ text = "CONFIRM"
 [connection signal="pressed" from="InsideMenu/VBoxContainer/SettingsButton" to="InsideMenu" method="_on_settings_button_pressed"]
 [connection signal="pressed" from="InsideMenu/VBoxContainer/MainMenuButton" to="InsideMenu" method="_on_main_menu_button_pressed"]
 [connection signal="pressed" from="InsideMenu/VBoxContainer/ExitButton" to="InsideMenu" method="_on_exit_button_pressed"]
-[connection signal="gui_input" from="GameUI/TextureRect" to="GameUI" method="_on_texture_rect_gui_input"]
 [connection signal="gui_input" from="Bag/PanelContainer/VBoxContainer/HBoxContainer/PanelContainer/MarginContainer/VBoxContainer/Equipments/PlayerTeture/MarginContainer/TextureRect" to="Bag" method="_show_player_information"]
 [connection signal="pressed" from="Bag/tips/VBoxContainer/using" to="Bag/tips" method="_on_using_pressed"]
 [connection signal="pressed" from="Bag/tips/VBoxContainer/cancel" to="Bag/tips" method="_on_cancel_pressed"]
@@ -1059,4 +1097,4 @@ text = "CONFIRM"
 [connection signal="timeout" from="Bag/Description_CD" to="Bag" method="_on_description_cd_timeout"]
 [connection signal="pressed" from="OpManager/VBoxContainer/HBoxContainer/Button" to="OpManager" method="_on_button_pressed"]
 [connection signal="pressed" from="Tips/Button" to="Tips" method="_on_button_pressed"]
-[connection signal="pressed" from="ChestOpen/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="ChestOpen/Button" to="ChestOpen" method="_on_button_pressed"]

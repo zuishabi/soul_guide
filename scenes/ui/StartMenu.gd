@@ -11,6 +11,7 @@ func _on_panel_container_mouse_exited():
 
 func _on_start_button_pressed():
 	Global.game_start()
+	Ui.initial_ui()
 
 func game_start():
 	hide()

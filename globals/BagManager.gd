@@ -32,7 +32,7 @@ func add_item(item:Item,count:int):
 
 func delete_item(item:Item,count:int)->bool:
 	if(item.can_fold):
-		var i_item=find_item(item)
+		var i_item=inventory[inventory.find(item)]
 		if(i_item):
 			if(i_item.count-count<0):
 				return false
@@ -54,12 +54,6 @@ func delete_item(item:Item,count:int)->bool:
 			return false
 	on_bag_changed.emit()
 	return true
-
-func find_item(item:Item)->Item:
-	for i in inventory:
-		if(i.name==item.name):
-			return i
-	return null
 
 func equip(where:int):
 	var e_where:int=equipments_kind.values().find(inventory[where].equipment_kind)

@@ -1,26 +1,15 @@
-extends Control
+extends BaseUi
 
-func _ready():
-	pass
-
-func _process(delta):
-	pass
-
-func _input(event):
-	if event.is_action_pressed("exit")&&Global.is_game_started:
-		if visible&&!Global.is_gaming:
-			Global.is_gaming=true
-			self.hide()
-			get_tree().paused=false
-		elif !visible&&Global.is_gaming:
-			Global.is_gaming=false
-			get_tree().paused=true
-			self.show()
+func show_ui():
+	if visible&&Global.is_game_started:
+		Global.return_game()
+		self.hide()
+	elif !visible&&Global.is_game_started:
+		Global.stop_game()
+		self.show()
 
 func _on_back_button_pressed():
-	self.hide()
-	get_tree().paused=false
-	Global.is_gaming=true
+	Ui.show_ui("InsideMenu")
 
 func _on_settings_button_pressed():
 	self.hide()

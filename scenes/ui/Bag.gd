@@ -1,16 +1,29 @@
-extends Control
+extends BaseUi
 
 @onready var grid_slots = $PanelContainer/VBoxContainer/HBoxContainer/Slots/GridSlots
 @onready var description = $Description
 @onready var description_cd = $Description_CD
 @onready var tips = $tips
 @onready var player_information = $PlayerInformation
-
 var selected:bool=false#是否有格子被选中
 var description_visible
 var equipments_slots:Array#存放所有的装备格子
 var slots:Array#存放所有的物品格子
-
+#-------------------------------------------对外-----------------------------------------------------
+func show_ui():
+	if(Global.is_in_dungeon&&!self.visible):
+		Global.is_gaming=false
+		get_tree().paused=true
+		self.show()
+		slots_update()
+		player_information.hide()
+	elif Global.is_in_dungeon&&self.visible:
+		Global.is_gaming=true
+		get_tree().paused=false
+		self.hide()
+		slots_update()
+		player_information.hide()
+#-------------------------------------------对内----------------------------------------------------
 func _ready():
 	slots=grid_slots.get_children()#获取所有的背包格子，并放在slots数组中
 	for i:BagSlots in grid_slots.get_children():#遍历所有的背包格子，将格子中的信号连接到背包中
@@ -43,31 +56,10 @@ func slots_update():
 		equipments_slots[size].slot_update(size)
 		size+=1
 
-func _input(event):
-	if(event.is_action_pressed("bag")):
-		show_bag()
-
-func show_bag():
-	if(Global.is_in_dungeon&&!self.visible&&!get_tree().paused):
-		Global.is_gaming=false
-		get_tree().paused=true
-		self.show()
-		slots_update()
-		player_information.hide()
-	elif Global.is_in_dungeon&&self.visible&&get_tree().paused:
-		Global.is_gaming=true
-		get_tree().paused=false
-		self.hide()
-		slots_update()
-		player_information.hide()
-
 #退出按钮
 func _on_texture_rect_gui_input(event:InputEvent):
 	if event.is_action_pressed("mouse_left"):
-		Global.is_gaming=true
-		get_tree().paused=false
-		self.hide()
-		slots_update()
+		Ui.show_ui("Bag")
 
 #-----------------------------------物品描述--------------------------------------
 func show_description(where:int,kind:String):

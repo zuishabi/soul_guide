@@ -1,4 +1,4 @@
-extends Control
+extends BaseUi
 
 @onready var panel_container = $PanelContainer
 
@@ -15,8 +15,10 @@ func hide_animation():
 	await tween.finished
 	self.hide()
 
-func update_information():
+func show_ui():
 	if(visible):
 		hide_animation()
+		Global.return_game()
 	else:
+		Global.stop_game()
 		show_animation()

@@ -31,7 +31,7 @@ func is_cell_has_navigation_polygon(cell:Vector2i):
 	var bol = false
 	var data = _tile_map.get_cell_tile_data(_layer_id,cell)
 	if data:
-		if data.get_custom_data("useable"): # 有导航区域
+		if data.get_custom_data("usable"): # 有导航区域
 			bol = true
 	return bol
 
