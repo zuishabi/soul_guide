@@ -8,3 +8,6 @@ script = ExtResource("1_ev3um")
 ai = "<null>"
 name = "vampire"
 enemy_texture = ExtResource("1_rjnqh")
+max_health = 100
+defense = 0
+attack = 0

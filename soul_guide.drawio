@@ -1,6 +1,6 @@
-<mxfile host="Electron" modified="2024-06-20T11:49:20.181Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/24.5.3 Chrome/124.0.6367.207 Electron/30.0.6 Safari/537.36" etag="gFzJwY3B9ADHbHPqS7qh" version="24.5.3" type="device">
+<mxfile host="Electron" modified="2024-06-25T14:58:57.035Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/24.5.3 Chrome/124.0.6367.207 Electron/30.0.6 Safari/537.36" etag="ql8OCyPufdcrPwCgAxuS" version="24.5.3" type="device">
   <diagram name="第 1 页" id="BgZHXp0ORcUXNXHAc5Lz">
-    <mxGraphModel dx="938" dy="789" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="698" dy="410" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -222,6 +222,15 @@
         </mxCell>
         <mxCell id="yLYu9Fk3XAMeRcjhBIjI-6" value="level" style="whiteSpace=wrap;html=1;" parent="1" vertex="1">
           <mxGeometry x="238.5" y="710" width="63" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="3HjlG1eH3jA1Bg0v4heZ-1" value="BattleManager" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="1190" y="850" width="100" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="LZSfDSIIpH8t6My47tDa-1" value="battle_ui" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="1040" y="1010" width="80" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="LZSfDSIIpH8t6My47tDa-2" value="skill" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="1180" y="1007.5" width="80" height="35" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>

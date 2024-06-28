@@ -10,3 +10,5 @@ enum craft_kind{ad,bs}
 @export_group("attribute_attack")
 @export var fire_attack:int
 @export var water_attack:int
+@export_group("skills")
+@export var skill:Array[Skill]

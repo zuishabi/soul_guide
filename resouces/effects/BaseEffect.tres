@@ -1,0 +1,6 @@
+[gd_resource type="Resource" script_class="Effect" load_steps=2 format=3 uid="uid://ctryn35rnej7g"]
+
+[ext_resource type="Script" path="res://resouces/effects/BaseEffect.gd" id="1_3kk0v"]
+
+[resource]
+script = ExtResource("1_3kk0v")

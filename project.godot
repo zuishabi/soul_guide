@@ -26,10 +26,18 @@ Ui="*res://scenes/ui/ui.tscn"
 TipsEmitter="*res://globals/TipsEmitter.gd"
 LootsManager="*res://Loots/loots_manager.tscn"
 GlobalItemList="*res://globals/global_item_list.tscn"
+BattleManager="*res://scenes/Battle/battle_manager.tscn"
+EBGenerator="*res://globals/EBGenerator.gd"
+Signal_Debugger="*res://addons/SignalVisualizer/Debugger/SignalDebugger.gd"
+EnemyEffectManager="*res://globals/EnemyEffectManager.gd"
 
 [display]
 
 window/stretch/mode="canvas_items"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/SignalVisualizer/plugin.cfg")
 
 [input]
 

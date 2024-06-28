@@ -1,7 +1,9 @@
-[gd_resource type="Resource" script_class="Equipment" load_steps=3 format=3 uid="uid://4brj5306flwx"]
+[gd_resource type="Resource" script_class="Equipment" load_steps=5 format=3 uid="uid://4brj5306flwx"]
 
 [ext_resource type="Texture2D" uid="uid://cwck2xmggi7vu" path="res://arts/2D Pixel Dungeon Asset Pack/equipments/sword.png" id="1_7pujt"]
 [ext_resource type="Script" path="res://resouces/item_scripts/equipment.gd" id="1_a82ge"]
+[ext_resource type="Resource" uid="uid://qtp2p5ubnud1" path="res://resouces/skill_resources/drinkblood.tres" id="4_dvw0n"]
+[ext_resource type="Resource" uid="uid://cuqpduxpnff3" path="res://resouces/skill_resources/attack.tres" id="4_tr2xb"]
 
 [resource]
 script = ExtResource("1_a82ge")
@@ -12,6 +14,7 @@ defense = 0
 craft = 1
 fire_attack = 10
 water_attack = 0
+skill = Array[Resource("res://resouces/skill_scripts/skill.gd")]([ExtResource("4_tr2xb"), ExtResource("4_dvw0n")])
 item_texture = ExtResource("1_7pujt")
 can_fold = false
 name = "sword"

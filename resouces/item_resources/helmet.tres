@@ -1,7 +1,8 @@
-[gd_resource type="Resource" script_class="Equipment" load_steps=3 format=3 uid="uid://dkdkb4m73jwpl"]
+[gd_resource type="Resource" script_class="Equipment" load_steps=4 format=3 uid="uid://dkdkb4m73jwpl"]
 
 [ext_resource type="Script" path="res://resouces/item_scripts/equipment.gd" id="1_dlnob"]
 [ext_resource type="Texture2D" uid="uid://cxc10yxa3lo1d" path="res://arts/2D Pixel Dungeon Asset Pack/equipments/helmet.png" id="1_ettmx"]
+[ext_resource type="Resource" uid="uid://c22iq6gs5lfeu" path="res://resouces/skill_resources/heal.tres" id="3_7qwn8"]
 
 [resource]
 script = ExtResource("1_dlnob")
@@ -12,6 +13,7 @@ defense = 10
 craft = 0
 fire_attack = 0
 water_attack = 0
+skill = Array[Resource("res://resouces/skill_scripts/skill.gd")]([ExtResource("3_7qwn8")])
 item_texture = ExtResource("1_ettmx")
 can_fold = false
 name = "helmet"

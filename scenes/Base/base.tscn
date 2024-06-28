@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://c200q7if46nkr"]
+[gd_scene load_steps=14 format=3 uid="uid://c200q7if46nkr"]
 
 [ext_resource type="Script" path="res://scenes/Base/base.gd" id="1_8goli"]
 [ext_resource type="Script" path="res://objects/TrapDoor.gd" id="2_4mc7x"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://cbhun1bnv5xpi" path="res://arts/2D Pixel Dungeon Asset Pack/character and tileset/Dungeon_Tileset.png" id="2_kotr6"]
 [ext_resource type="PackedScene" uid="uid://cvmvkklb2dqu5" path="res://scenes/player/player.tscn" id="2_lf3te"]
 [ext_resource type="Texture2D" uid="uid://dby1iikiulohg" path="res://arts/2D Pixel Dungeon Asset Pack/gui/can_reach.png" id="4_2cxf2"]
+[ext_resource type="Resource" uid="uid://yp2rv1aehja1" path="res://resouces/enemy_resources/dogface.tres" id="4_lk6fj"]
 [ext_resource type="Texture2D" uid="uid://co7slxb84i7k5" path="res://arts/2D Pixel Dungeon Asset Pack/character and tileset/demonstration.png" id="5_hwsi1"]
 [ext_resource type="Texture2D" uid="uid://fefp0svoqpee" path="res://arts/2D Pixel Dungeon Asset Pack/gui/target_place.png" id="5_r26lr"]
 
@@ -138,6 +139,7 @@ texture = ExtResource("2_kotr6")
 9:6/0 = 0
 9:6/0/custom_data_2 = true
 9:6/0/custom_data_3 = true
+9:6/0/custom_data_5 = ExtResource("4_lk6fj")
 0:7/0 = 0
 0:7/0/custom_data_2 = true
 1:7/0 = 0
@@ -153,9 +155,11 @@ texture = ExtResource("2_kotr6")
 8:7/0 = 0
 8:7/0/custom_data_2 = true
 8:7/0/custom_data_3 = true
+8:7/0/custom_data_5 = ExtResource("4_lk6fj")
 9:7/0 = 0
 9:7/0/custom_data_2 = true
 9:7/0/custom_data_3 = true
+9:7/0/custom_data_5 = ExtResource("4_lk6fj")
 0:8/0 = 0
 0:8/0/custom_data_0 = true
 0:8/0/custom_data_1 = ExtResource("2_a0l7s")
@@ -370,6 +374,8 @@ custom_data_layer_3/name = "is_enemy"
 custom_data_layer_3/type = 1
 custom_data_layer_4/name = "usable"
 custom_data_layer_4/type = 1
+custom_data_layer_5/name = "enemy"
+custom_data_layer_5/type = 24
 sources/0 = SubResource("TileSetAtlasSource_eitgs")
 sources/1 = SubResource("TileSetAtlasSource_cwq04")
 

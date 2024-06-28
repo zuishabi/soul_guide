@@ -5,27 +5,27 @@ signal magic_change(value)
 signal on_player_properties_changed
 signal on_player_stats_changed
 
-var health:int:
+var health:float:
 	set(value):
 		health=value
 		health_change.emit(value)
-var magic:int:
+var magic:float:
 	set(value):
 		magic=value
 		magic_change.emit(value)
 #最大生命值
-var max_health:int=100
+var max_health:float=100
 #最大法力值
-var max_magic:int=50
+var max_magic:float=50
 #攻击值
-var attack:int=10
+var attack:float=10
 #防御值
-var defense:int=5
+var defense:float=5
 #穿甲值
-var armour:int=0
+var armour:float=0
 #属性攻击
-var fire_attack:int=0
-var water_attack:int=0
+var fire_attack:float=0
+var water_attack:float=0
 
 func _ready():
 	on_player_properties_changed.connect(update_player_stats)

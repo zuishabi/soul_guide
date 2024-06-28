@@ -1,4 +1,4 @@
-[gd_scene load_steps=67 format=3 uid="uid://cdbhchrfy0n08"]
+[gd_scene load_steps=98 format=3 uid="uid://cdbhchrfy0n08"]
 
 [ext_resource type="Script" path="res://scenes/ui/ui.gd" id="1_24yio"]
 [ext_resource type="Script" path="res://scenes/ui/StartMenu.gd" id="1_op5d7"]
@@ -41,6 +41,31 @@
 [ext_resource type="Texture2D" uid="uid://c7fesjth1wsr5" path="res://arts/2D Pixel Dungeon Asset Pack/gui/defense.png" id="35_3aqhv"]
 [ext_resource type="Script" path="res://scenes/ui/FightUi.gd" id="41_jm7cj"]
 [ext_resource type="Script" path="res://scenes/ui/AnimationPlayer.gd" id="41_yqlxy"]
+[ext_resource type="PackedScene" uid="uid://c8dmbojrw0mme" path="res://scenes/ui/BattleTexture.tscn" id="42_a88cj"]
+[ext_resource type="PackedScene" uid="uid://d13dej0t1rdof" path="res://scenes/ui/enemy_battle_texture.tscn" id="43_pq3x8"]
+[ext_resource type="Script" path="res://scenes/ui/SkillDescription.gd" id="43_u71ft"]
+[ext_resource type="Texture2D" uid="uid://cxq7oseinmodn" path="res://arts/Animations/skills/attack/attack0000.png" id="44_kt4p5"]
+[ext_resource type="Texture2D" uid="uid://cj1b8hub1l1y" path="res://arts/Animations/skills/attack/attack0001.png" id="45_otadf"]
+[ext_resource type="Texture2D" uid="uid://byge2icvrqwjo" path="res://arts/Animations/skills/attack/attack0002.png" id="46_qrtuc"]
+[ext_resource type="Texture2D" uid="uid://cy6jlnualrwio" path="res://arts/Animations/skills/attack/attack0003.png" id="47_udf71"]
+[ext_resource type="Texture2D" uid="uid://bwx4rfuqwhpmw" path="res://arts/Animations/skills/attack/attack0004.png" id="48_t3q2p"]
+[ext_resource type="Texture2D" uid="uid://blys741xxmrok" path="res://arts/Animations/skills/attack/attack0005.png" id="49_brriw"]
+[ext_resource type="Texture2D" uid="uid://2e7uj674os5x" path="res://arts/Animations/skills/attack/attack0006.png" id="50_orn1f"]
+[ext_resource type="Texture2D" uid="uid://ct0hhfx4kfkxn" path="res://arts/Animations/skills/attack/attack0007.png" id="51_aewse"]
+[ext_resource type="Texture2D" uid="uid://c7i57efrktfv3" path="res://arts/Animations/skills/attack/attack0008.png" id="52_lh7av"]
+[ext_resource type="Texture2D" uid="uid://c2eoyl25tqvh8" path="res://arts/Animations/skills/attack/attack0009.png" id="53_t7o67"]
+[ext_resource type="Texture2D" uid="uid://docicsucwqenl" path="res://arts/Animations/skills/attack/attack0010.png" id="54_hdisf"]
+[ext_resource type="Texture2D" uid="uid://c1xc6q4tn5pp3" path="res://arts/Animations/skills/heal/heal0000.png" id="55_a4vbe"]
+[ext_resource type="Texture2D" uid="uid://dqeimh4j0fpsq" path="res://arts/Animations/skills/heal/heal0001.png" id="56_ueypq"]
+[ext_resource type="Texture2D" uid="uid://bu6ioqvnmgsk8" path="res://arts/Animations/skills/heal/heal0002.png" id="57_x4ug2"]
+[ext_resource type="Texture2D" uid="uid://dabp857stp38s" path="res://arts/Animations/skills/heal/heal0003.png" id="58_7keut"]
+[ext_resource type="Texture2D" uid="uid://dncjutvvtk66q" path="res://arts/Animations/skills/drinkblood/drinkblood0000.png" id="60_2u6hi"]
+[ext_resource type="Texture2D" uid="uid://dy6jp5wpfebyd" path="res://arts/Animations/skills/drinkblood/drinkblood0001.png" id="61_ycnn2"]
+[ext_resource type="Texture2D" uid="uid://15b52ubm60cw" path="res://arts/Animations/skills/drinkblood/drinkblood0002.png" id="62_g7neh"]
+[ext_resource type="Texture2D" uid="uid://cdghpdys0btjc" path="res://arts/Animations/skills/drinkblood/drinkblood0003.png" id="63_wkrjl"]
+[ext_resource type="Texture2D" uid="uid://bt8ooysh23cwj" path="res://arts/Animations/skills/drinkblood/drinkblood0004.png" id="64_csma1"]
+[ext_resource type="Texture2D" uid="uid://oqb1c8jlyp72" path="res://arts/Animations/skills/drinkblood/drinkblood0005.png" id="65_6s3pt"]
+[ext_resource type="Texture2D" uid="uid://cjbbjbk62w387" path="res://arts/Animations/skills/drinkblood/drinkblood0006.png" id="66_t2eul"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_w2klq"]
 font_size = 40
@@ -212,6 +237,202 @@ animations = [{
 "name": &"chest_open",
 "speed": 5.0
 }]
+
+[sub_resource type="LabelSettings" id="LabelSettings_f0vcb"]
+font_size = 20
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="Animation" id="Animation_l46w5"]
+resource_name = "attack"
+length = 0.7
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimationPlayer/Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3, 0.35, 0.4, 0.45, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("44_kt4p5"), ExtResource("45_otadf"), ExtResource("46_qrtuc"), ExtResource("47_udf71"), ExtResource("48_t3q2p"), ExtResource("49_brriw"), ExtResource("50_orn1f"), ExtResource("51_aewse"), ExtResource("52_lh7av"), ExtResource("53_t7o67"), ExtResource("54_hdisf")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimationPlayer/Sprite2D:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AnimationPlayer/Sprite2D:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(382, 237)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("AnimationPlayer/Sprite2D:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.274951, 0.243875)]
+}
+
+[sub_resource type="Animation" id="Animation_3l7yv"]
+resource_name = "heal"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimationPlayer/Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.7, 1.3, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("55_a4vbe"), ExtResource("56_ueypq"), ExtResource("57_x4ug2"), ExtResource("58_7keut")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimationPlayer/Sprite2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(325, 237)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AnimationPlayer/Sprite2D:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.307178, 0.297586)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("AnimationPlayer/Sprite2D:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_t0p4q"]
+resource_name = "drinkblood"
+length = 0.8
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimationPlayer/Sprite2D:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimationPlayer/Sprite2D:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("60_2u6hi"), ExtResource("61_ycnn2"), ExtResource("62_g7neh"), ExtResource("63_wkrjl"), ExtResource("64_csma1"), ExtResource("65_6s3pt"), ExtResource("66_t2eul")]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AnimationPlayer/Sprite2D:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(382, 229)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("AnimationPlayer/Sprite2D:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_ye126"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimationPlayer/Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("60_2u6hi")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimationPlayer/Sprite2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(382, 221)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_o1xae"]
+_data = {
+"RESET": SubResource("Animation_ye126"),
+"attack": SubResource("Animation_l46w5"),
+"drinkblood": SubResource("Animation_t0p4q"),
+"heal": SubResource("Animation_3l7yv")
+}
 
 [node name="UI" type="CanvasLayer"]
 process_mode = 3
@@ -1064,19 +1285,95 @@ grow_vertical = 2
 script = ExtResource("41_jm7cj")
 
 [node name="MainUi" type="PanelContainer" parent="FightUi"]
+custom_minimum_size = Vector2(750, 450)
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -250.0
-offset_top = -150.0
-offset_right = 250.0
-offset_bottom = 150.0
+offset_left = -375.0
+offset_top = -225.0
+offset_right = 375.0
+offset_bottom = 225.0
 grow_horizontal = 2
 grow_vertical = 2
-pivot_offset = Vector2(250, 150)
+pivot_offset = Vector2(375, 225)
+
+[node name="SkillV" type="VBoxContainer" parent="FightUi/MainUi"]
+layout_mode = 2
+alignment = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="FightUi/MainUi/SkillV"]
+layout_mode = 2
+theme_override_constants/margin_left = 66
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_right = 66
+theme_override_constants/margin_bottom = 25
+
+[node name="SkillG" type="GridContainer" parent="FightUi/MainUi/SkillV/MarginContainer"]
+layout_mode = 2
+theme_override_constants/h_separation = 2
+columns = 10
+
+[node name="BattleTexture" parent="FightUi" instance=ExtResource("42_a88cj")]
+z_index = 1
+offset_left = 235.0
+offset_top = 164.0
+offset_right = 235.0
+offset_bottom = 164.0
+
+[node name="EnemyBattleTexture" parent="FightUi" instance=ExtResource("43_pq3x8")]
+offset_left = 761.0
+offset_top = 124.0
+offset_right = 761.0
+offset_bottom = 124.0
+
+[node name="SkillDescription" type="PanelContainer" parent="FightUi"]
+visible = false
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -93.0
+offset_top = 100.0
+offset_right = 145.0
+offset_bottom = 358.0
+grow_horizontal = 2
+scale = Vector2(0.8, 0.8)
+theme = ExtResource("22_610n6")
+script = ExtResource("43_u71ft")
+
+[node name="MarginContainer" type="MarginContainer" parent="FightUi/SkillDescription"]
+layout_mode = 2
+theme_override_constants/margin_left = 2
+theme_override_constants/margin_top = 2
+theme_override_constants/margin_right = 2
+theme_override_constants/margin_bottom = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="FightUi/SkillDescription/MarginContainer"]
+layout_mode = 2
+
+[node name="Name" type="Label" parent="FightUi/SkillDescription/MarginContainer/VBoxContainer"]
+layout_mode = 2
+label_settings = SubResource("LabelSettings_f0vcb")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SkillDescription" type="RichTextLabel" parent="FightUi/SkillDescription/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="FightUi"]
+libraries = {
+"": SubResource("AnimationLibrary_o1xae")
+}
+
+[node name="Sprite2D" type="Sprite2D" parent="FightUi/AnimationPlayer"]
+position = Vector2(382, 221)
+scale = Vector2(0.307178, 0.297586)
+texture = ExtResource("60_2u6hi")
 
 [connection signal="gui_input" from="GameUI/TextureRect" to="GameUI" method="_on_texture_rect_gui_input"]
 [connection signal="pressed" from="StartMenu/VBoxContainer/StartButton" to="StartMenu" method="_on_start_button_pressed"]

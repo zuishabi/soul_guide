@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="DrinkBlood" load_steps=3 format=3 uid="uid://qtp2p5ubnud1"]
+
+[ext_resource type="Script" path="res://resouces/skill_scripts/dinkbllod.gd" id="1_3fmod"]
+[ext_resource type="Texture2D" uid="uid://c7flggkuhkkny" path="res://arts/skils/drinkblood.png" id="2_3w6vs"]
+
+[resource]
+script = ExtResource("1_3fmod")
+skill_texture = ExtResource("2_3w6vs")
+skill_cd = 6.0
+skill_name = "drinkblood"
+skill_description = "对敌人进行10点攻击并吸收10点血"

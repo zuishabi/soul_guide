@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="Heal" load_steps=3 format=3 uid="uid://c22iq6gs5lfeu"]
+
+[ext_resource type="Script" path="res://resouces/skill_scripts/heal.gd" id="1_ai1q4"]
+[ext_resource type="Texture2D" uid="uid://cfpgyquhittue" path="res://arts/skils/heal.png" id="2_dadi1"]
+
+[resource]
+script = ExtResource("1_ai1q4")
+skill_texture = ExtResource("2_dadi1")
+skill_cd = 5.0
+skill_name = "Heal"
+skill_type = Array[int]([1])
+skill_description = "当当前生命值小于80%时回复10生命值"

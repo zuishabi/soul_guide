@@ -1,0 +1,34 @@
+[gd_scene load_steps=6 format=3 uid="uid://dqnttpfxj35s4"]
+
+[ext_resource type="Script" path="res://scenes/ui/SkillUi.gd" id="1_epr1y"]
+[ext_resource type="Texture2D" uid="uid://vpdu8nm6p1o5" path="res://arts/skils/attack.png" id="2_uvxlg"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bk1sr"]
+bg_color = Color(0, 0, 0, 0.423529)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_80kgs"]
+bg_color = Color(0, 0.717647, 0.384314, 0.298039)
+
+[sub_resource type="Theme" id="Theme_430aa"]
+ProgressBar/styles/background = SubResource("StyleBoxFlat_bk1sr")
+ProgressBar/styles/fill = SubResource("StyleBoxFlat_80kgs")
+
+[node name="SkillUi" type="PanelContainer"]
+custom_minimum_size = Vector2(60, 60)
+offset_right = 16.0
+offset_bottom = 16.0
+script = ExtResource("1_epr1y")
+
+[node name="SkillTexture" type="TextureRect" parent="."]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 2
+texture = ExtResource("2_uvxlg")
+expand_mode = 1
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+visible = false
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 2
+mouse_filter = 2
+theme = SubResource("Theme_430aa")
+fill_mode = 3

@@ -1,0 +1,51 @@
+[gd_scene load_steps=5 format=3 uid="uid://c8dmbojrw0mme"]
+
+[ext_resource type="Texture2D" uid="uid://ca86ifr8jbcje" path="res://arts/2D Pixel Dungeon Asset Pack/gui/GUI.png" id="1_quv8r"]
+[ext_resource type="Texture2D" uid="uid://dt1xcc3luemol" path="res://arts/2D Pixel Dungeon Asset Pack/Character_animation/priests_idle/priest2/v1/priest2_v1_3.png" id="2_7ym8l"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q4d3l"]
+atlas = ExtResource("1_quv8r")
+region = Rect2(135, 20, 52, 7)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j8efx"]
+atlas = ExtResource("1_quv8r")
+region = Rect2(72, 22, 49, 3)
+
+[node name="BattleTexture" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="."]
+layout_mode = 2
+offset_right = 52.0
+offset_bottom = 7.0
+scale = Vector2(3, 3)
+value = 100.0
+texture_under = SubResource("AtlasTexture_q4d3l")
+texture_progress = SubResource("AtlasTexture_j8efx")
+texture_progress_offset = Vector2(1, 2)
+
+[node name="health" type="Label" parent="."]
+layout_mode = 0
+offset_right = 156.0
+offset_bottom = 23.0
+text = "135151"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 2
+offset_left = 21.0
+offset_top = 32.0
+offset_right = 37.0
+offset_bottom = 48.0
+scale = Vector2(6, 6)
+texture = ExtResource("2_7ym8l")
+stretch_mode = 5
+
+[node name="StatesContainer" type="GridContainer" parent="."]
+layout_mode = 0
+offset_top = 128.0
+offset_right = 156.0
+offset_bottom = 168.0
+columns = 5

@@ -1,10 +1,12 @@
 extends CanvasLayer
 
+signal animation_finished
 @onready var description = $Description
 @onready var task = $Task
 @onready var bag = $Bag
 @onready var chest_open = $ChestOpen
 @onready var label = $Label
+@onready var fight_ui = $FightUi
 
 var focused_ui:String=""
 
@@ -45,5 +47,5 @@ func show_player_information():
 func chest_open_play(item_array:Array[Item]):
 	chest_open.ani_play(item_array)
 
-func start_fight():
-	show_ui("FightUi")
+func is_animation_playing()->bool:
+	return $FightUi/AnimationPlayer.is_playing()

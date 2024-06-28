@@ -80,8 +80,8 @@ func process_mouse_target():
 	else:
 		mouse_target.hide()
 
-func start_fight():
-	pass
+func start_fight(enemy:EnemyStats):
+	BattleManager.start_battle(enemy)
 
 func get_target()->String:
 	if(get_tile_data(target_pos,0,"is_enemy")):
@@ -92,7 +92,8 @@ func get_target()->String:
 
 func process_target(target:String):
 	if(target=="enemy"):
-		start_fight()
+		var enemy:EnemyStats=get_tile_data(target_pos,0,"enemy")
+		start_fight(enemy)
 	elif(target=="can_interact"):
 		process_object()
 

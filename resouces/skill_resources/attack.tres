@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="attack" load_steps=3 format=3 uid="uid://cuqpduxpnff3"]
+
+[ext_resource type="Script" path="res://resouces/skill_scripts/attack.gd" id="1_p3jmm"]
+[ext_resource type="Texture2D" uid="uid://vpdu8nm6p1o5" path="res://arts/skils/attack.png" id="2_0w1ga"]
+
+[resource]
+script = ExtResource("1_p3jmm")
+skill_texture = ExtResource("2_0w1ga")
+skill_cd = 2.0
+skill_name = "attack"
+skill_type = Array[int]([0])
+skill_description = "进行10点攻击"

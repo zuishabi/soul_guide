@@ -8,7 +8,6 @@ extends Resource
 @export var item_type:String#物品的类型
 @export var value:int#物品的价值
 
-
 var count:int=1
 
 func effect():
